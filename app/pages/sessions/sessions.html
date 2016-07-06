@@ -1,0 +1,30 @@
+<!--
+  Generated template for the SessionsPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>  
+  <ion-title>Sessions</ion-title>
+</ion-navbar>
+
+<ion-content padding class="sessions">
+  <ion-list class="animate-fade-slide-in-right">
+    <ion-item *ngFor="let session of sessions" (click)="viewSession(session)">
+      <ion-badge item-left secondary>
+        {{ session.flatDistance | number:'1.0-0'}} Km<br>rr
+      </ion-badge>
+      <h2>
+      {{ session.startTime | date:"dd/MM/yyyy HH:mm" }}
+      </h2>
+      <p>
+      {{session.flatDistance | number:'1.2-2'}} Km - {{session.duration | date:"HH:mm":"UTC"}} - {{session.pace | date:"m.ss"}} min/km<br>
+      {{session.speed  | number:'1.2-2'}} Km/h - {{ session.maxAltitude  | number:'1.2-2'}} m up / {{ session.minAltitude  | number:'1.2-2'}} m down
+      </p>         
+    </ion-item>  
+  </ion-list>
+  <button fab primary fab-bottom fab-right fab-fixed (click)="newSession()"><ion-icon name="add"></ion-icon></button>
+</ion-content>

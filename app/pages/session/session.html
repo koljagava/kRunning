@@ -1,0 +1,21 @@
+<ion-content padding class="session">
+  <h1 style="text-align:center" class="session">
+     {{timer.toString()}}
+  </h1>
+  <p>
+    <button *ngIf="servicesHandler.isStarted==false" primary block (click)="start()">Start</button>
+    <button *ngIf="servicesHandler.isStarted==true" danger block (click)="stop()">Stop</button>
+  </p>
+  <p class="session">
+    Speed : {{sessionDataService.sessionData.speed | number:'1.2-2'}} km/h
+  </p>
+  <p class="session">
+    Distance : {{sessionDataService.sessionData.flatDistance | number:'1.2-2'}} km
+  </p>
+  <p class="session">
+    GPS Accuracy : {{sessionDataService.actualGpsAccuracy  | number:'1.2-2'}} m
+  </p>
+  <p class="session">
+    <kk-mapviewer></kk-mapviewer>
+  </p>
+</ion-content>

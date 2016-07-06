@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/a9d3849f8880ee9e71ebd45343a57c75473b338e/cordova-plugin-background-mode/cordova-plugin-background-mode.d.ts",
+    "raw": "registry:dt/cordova-plugin-background-mode#0.0.0+20160412153104",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/a9d3849f8880ee9e71ebd45343a57c75473b338e/cordova-plugin-background-mode/cordova-plugin-background-mode.d.ts"
+  }
+}
