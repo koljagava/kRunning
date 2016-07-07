@@ -4,3 +4,4 @@ platforms/
 plugins/
 .DS_Store
 .vscode/
+npm-debug.log
