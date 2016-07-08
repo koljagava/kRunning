@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/services/WeatherService.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">app/services/</a> WeatherService.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>37/74</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70.73% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>29/41</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.08% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">40.98% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>25/61</span>
+      </div>
+      <div class='fl pad1y'>
+        <span class="strong">3 statements, 15 branches</span>
+        <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import {Injectable} from "@angular/core";
+import {Service} from "./Service";
+import {Events} from 'ionic-angular';
+import {StringUtils} from "../utils/String";
+import {Http, HTTP_PROVIDERS} from '@angular/http';
+import {Logging} from '../utils/Logging';
+import {EventsManager} from '../utils/EventsManager';
+&nbsp;
+@Injectable()
+export class WeatherService implements Service{
+    public static providers = [Events, Http, HTTP_PROVIDERS];
+    private events : Events;
+    private http : Http;
+    private static API_URL = "http://api.openweathermap.org/data";
+    private static API_VER = "2.5";
+    private static API_UNIT= "metric";
+    private static API_ID  = "d47877d6c8ab95bad2106065f5b0390c"
+    private static API_LANG= "it";
+    private static API_CMD = "[API_URL]/[API_VER]/weather?APPID=[API_ID]&amp;units=[API_UNIT]&amp;lat=[LATITUDE]&amp;lon=[LONGITUDE]&amp;lang=[API_LANG]";
+    private currentPosition : Position;
+    /*
+    -- Current response
+    {"coord":{"lon":139,"lat":35},
+    "sys":{"country":"JP","sunrise":1369769524,"sunset":1369821049},
+    "weather":[{"id":804,"main":"clouds","description":"overcast clouds","icon":"04n"}],
+    "main":{"temp":289.5,"humidity":89,"pressure":1013,"temp_min":287.04,"temp_max":292.04},
+    "wind":{"speed":7.31,"deg":187.002},
+    "rain":{"3h":0},
+    "clouds":{"all":92},
+    "dt":1369824698,
+    "id":1851632,
+    "name":"Shuzenji",
+    "cod":200}
+    */
+    public currWeather :any;  
+    private isPaused :boolean;
+    
+<span class="fstat-no" title="function not covered" >    p</span>ublic get lastUpdate(){
+<span class="cstat-no" title="statement not covered" >        if(this.currWeather==null || typeof this.currWeather.dt == "undefined")</span>
+<span class="cstat-no" title="statement not covered" >            return n</span>ull;
+<span class="cstat-no" title="statement not covered" >        return new Date(this.currWeather.d</span>t);
+    } 
+    
+<span class="fstat-no" title="function not covered" >    public constructor(events :Events, h</span>ttp: Http) {
+<span class="cstat-no" title="statement not covered" >        this.currentPosition = n</span>ull;
+<span class="cstat-no" title="statement not covered" >        this.events = e</span>vents;
+<span class="cstat-no" title="statement not covered" >        this.http = h</span>ttp;
+<span class="cstat-no" title="statement not covered" >        this.currWeather = n</span>ull;
+<span class="cstat-no" title="statement not covered" >        this.isPaused = f</span>alse;
+    }
+    
+<span class="fstat-no" title="function not covered" >    public setCurrentPosition(p</span>arams : Array&lt;any&gt;){
+<span class="cstat-no" title="statement not covered" >        let pos = &lt;Position&gt;params[0</span>];
+<span class="cstat-no" title="statement not covered" >        if (this.currentPosition==null){ </span>
+<span class="cstat-no" title="statement not covered" >            this.currentPosition=p</span>os;
+<span class="cstat-no" title="statement not covered" >            this.e</span>xecute();
+        }else
+<span class="cstat-no" title="statement not covered" >            this.currentPosition=p</span>os;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>ublic start(){
+<span class="cstat-no" title="statement not covered" >        EventsManager.subscribe("GeoLocationService:newPosition", this, this.s</span>etCurrentPosition);
+    }
+    
+<span class="fstat-no" title="function not covered" >    private getUrl(c</span>oord : Coordinates):string{
+<span class="cstat-no" title="statement not covered" >        let url = WeatherService.A</span>PI_CMD;
+<span class="cstat-no" title="statement not covered" >        url = url.replace("[API_URL]", WeatherService.A</span>PI_URL);
+<span class="cstat-no" title="statement not covered" >        url = url.replace("[API_VER]", WeatherService.A</span>PI_VER);
+<span class="cstat-no" title="statement not covered" >        url = url.replace("[API_ID]", WeatherService.A</span>PI_ID);
+<span class="cstat-no" title="statement not covered" >        url = url.replace("[API_UNIT]", WeatherService.A</span>PI_UNIT);
+<span class="cstat-no" title="statement not covered" >        url = url.replace("[LATITUDE]", coord.latitude.t</span>oString());
+<span class="cstat-no" title="statement not covered" >        url = url.replace("[LONGITUDE]", coord.longitude.t</span>oString());
+<span class="cstat-no" title="statement not covered" >        url = url.replace("[API_LANG]", WeatherService.A</span>PI_LANG);
+<span class="cstat-no" title="statement not covered" >        return u</span>rl;
+    }
+    
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    p</span>ublic execute(){</span>
+<span class="cstat-no" title="statement not covered" >        if (this.isPaused === true || this.currentPosition == null)</span>
+<span class="cstat-no" title="statement not covered" >            r</span>eturn;
+<span class="cstat-no" title="statement not covered" >        try{</span>
+<span class="cstat-no" title="statement not covered" >        this.http.get(this.getUrl(this.currentPosition.coords))</span>
+            .subscribe(<span class="fstat-no" title="function not covered" >(r</span>esponse)=&gt; {
+<span class="cstat-no" title="statement not covered" >                if (response.status==200){</span>
+<span class="cstat-no" title="statement not covered" >                    this.currWeather = response.j</span>son();
+<span class="cstat-no" title="statement not covered" >                    EventsManager.publish("WeatherService:newWeather",this.c</span>urrWeather);
+                }else{
+<span class="cstat-no" title="statement not covered" >                    Logging.log(this, StringUtils.format('Error OpenWeather : {0}',response.t</span>ext()));
+                }
+            });
+        }catch(err){
+<span class="cstat-no" title="statement not covered" >            Logging.log(this, e</span>rr);
+<span class="cstat-no" title="statement not covered" >            this.currentPosition = n</span>ull;
+        }
+    }
+    
+<span class="fstat-no" title="function not covered" >    p</span>ublic stop(){              
+<span class="cstat-no" title="statement not covered" >        EventsManager.unsubscribe("GeoLocationService:newPosition", t</span>his);
+    }
+    
+<span class="fstat-no" title="function not covered" >    p</span>ublic pause(){
+<span class="cstat-no" title="statement not covered" >        this.isPaused = t</span>rue;
+    }
+    
+<span class="fstat-no" title="function not covered" >    p</span>ublic resume(){
+<span class="cstat-no" title="statement not covered" >        this.isPaused=f</span>alse;
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jul 08 2016 11:01:41 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

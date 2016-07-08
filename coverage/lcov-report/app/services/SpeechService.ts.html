@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/services/SpeechService.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">app/services/</a> SpeechService.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">31.06% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>41/132</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">37.35% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>31/83</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">23.53% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">22.41% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>26/116</span>
+      </div>
+      <div class='fl pad1y'>
+        <span class="strong">6 statements, 15 branches</span>
+        <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Observable} from 'rxjs/Observable';
+import {Injectable} from "@angular/core";
+import {Service} from "./Service";
+import {Events} from 'ionic-angular';
+import {Configuration, RunProgram, RunProgramStep, RunProgramStepType} from '../Configuration';
+import {StringUtils} from "../utils/String";
+import {EventsManager} from '../utils/EventsManager';
+&nbsp;
+declare var SpeechSynthesisUtterance :any;
+declare var speechSynthesis : any;
+&nbsp;
+enum EventType {
+    minutes,
+    distance
+} 
+&nbsp;
+@Injectable()
+export class SpeechService implements Service{
+    public static providers = [Events];    
+    private events : Events;
+    private <span class="cstat-no" title="statement not covered" >isPaused = f</span>alse;
+    private <span class="cstat-no" title="statement not covered" >minCount = 0</span>;
+    private <span class="cstat-no" title="statement not covered" >kmCount = 0</span>;
+    private <span class="cstat-no" title="statement not covered" >delayProgramMinCount = 0</span>; 
+    private program : RunProgram;
+    private <span class="cstat-no" title="statement not covered" >currentRunStepId = 0</span>;
+    private <span class="cstat-no" title="statement not covered" >programRepeat = 0</span>;
+<span class="fstat-no" title="function not covered" >    public constructor(e</span>vents: Events){
+<span class="cstat-no" title="statement not covered" >        this.events = e</span>vents;
+    }
+    
+<span class="fstat-no" title="function not covered" >    p</span>ublic start(){
+<span class="cstat-no" title="statement not covered" >        EventsManager.subscribe("TimerService:infoMinElaps", this, this.s</span>peechInfoTimeElaps);
+<span class="cstat-no" title="statement not covered" >        EventsManager.subscribe("SessionDataService:infoKmElaps", this, this.s</span>peechInfoKmElaps);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.program = Configuration.p</span>rogram;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (this.program!=null){</span>
+<span class="cstat-no" title="statement not covered" >            if (this.program.steps.length==0){</span>
+<span class="cstat-no" title="statement not covered" >                this.program == n</span>ull;
+            }else{
+<span class="cstat-no" title="statement not covered" >                this.minCount=this.program.steps[this.currentRunStepId].m</span>inutes;
+<span class="cstat-no" title="statement not covered" >                this.kmCount =this.program.steps[this.currentRunStepId].d</span>istanceKm;
+<span class="cstat-no" title="statement not covered" >                this.programRepeat = this.program.t</span>imes; 
+            }
+        }
+<span class="cstat-no" title="statement not covered" >        this.delayProgramMinCount = Configuration.p</span>rogramStartDelayMin;
+<span class="cstat-no" title="statement not covered" >        this.s</span>peakStart();
+    }
+    
+<span class="fstat-no" title="function not covered" >    p</span>ublic speakStart(){
+<span class="cstat-no" title="statement not covered" >        if (this.delayProgramMinCount==0)</span>
+<span class="cstat-no" title="statement not covered" >            this.speechProgramStep(t</span>rue);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    public static speak(t</span>ext:String){
+<span class="cstat-no" title="statement not covered" >        if (Configuration.speechEnabled !== true)</span>
+<span class="cstat-no" title="statement not covered" >            r</span>eturn;
+<span class="cstat-no" title="statement not covered" >        let u = new S</span>peechSynthesisUtterance();
+<span class="cstat-no" title="statement not covered" >        u.lang = Configuration.l</span>ang;
+<span class="cstat-no" title="statement not covered" >        u.text = t</span>ext;
+<span class="cstat-no" title="statement not covered" >        speechSynthesis.speak(u</span>);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    public speechInfoKmElaps(p</span>arams : Array&lt;any&gt;){
+<span class="cstat-no" title="statement not covered" >        if (this.isPaused===true)</span>
+<span class="cstat-no" title="statement not covered" >            r</span>eturn; 
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.doProgramSpeech(EventType.d</span>istance);
+    }
+&nbsp;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    public speechInfoTimeElaps(p</span>arams : Array&lt;any&gt;){
+<span class="cstat-no" title="statement not covered" >        if (this.isPaused===true)</span>
+<span class="cstat-no" title="statement not covered" >            r</span>eturn; 
+<span class="cstat-no" title="statement not covered" >        let mins = &lt;number&gt;params[0</span>];
+        
+<span class="cstat-no" title="statement not covered" >        this.d</span>elayProgramMinCount--;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (this.delayProgramMinCount==0)</span>
+<span class="cstat-no" title="statement not covered" >            this.speechProgramStep(t</span>rue);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (Configuration.infoTimeElaps!= 0 &amp;&amp; (mins % Configuration.infoTimeElaps) == 0){ </span>
+<span class="cstat-no" title="statement not covered" >            let text : String;</span>
+<span class="cstat-no" title="statement not covered" >            if (mins==1){</span>
+<span class="cstat-no" title="statement not covered" >                text = "</span>un minuto";
+            }else{
+<span class="cstat-no" title="statement not covered" >                text = StringUtils.format("{0} minuti", m</span>ins);
+            }
+            //text = StringUtils.format("Sessione in corso da {0}", text);
+<span class="cstat-no" title="statement not covered" >            SpeechService.speak(t</span>ext);
+        }
+<span class="cstat-no" title="statement not covered" >        this.doProgramSpeech(EventType.m</span>inutes);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private doProgramSpeech(e</span>t: EventType){
+<span class="cstat-no" title="statement not covered" >        if (this.program == null || this.delayProgramMinCount&gt;0)</span>
+<span class="cstat-no" title="statement not covered" >        r</span>eturn;
+        switch(et){
+            case EventType.distance:
+<span class="cstat-no" title="statement not covered" >                if (this.kmCount==null)</span>
+<span class="cstat-no" title="statement not covered" >                    r</span>eturn;
+<span class="cstat-no" title="statement not covered" >                this.k</span>mCount--;
+<span class="cstat-no" title="statement not covered" >                if (this.kmCount==0){</span>
+<span class="cstat-no" title="statement not covered" >                    this.s</span>etNewProgramStep();
+<span class="cstat-no" title="statement not covered" >                    this.s</span>peechProgramStep();
+                }
+<span class="cstat-no" title="statement not covered" >                b</span>reak;
+            case EventType.minutes:
+<span class="cstat-no" title="statement not covered" >                if (this.minCount==null)</span>
+<span class="cstat-no" title="statement not covered" >                    r</span>eturn;
+<span class="cstat-no" title="statement not covered" >                this.m</span>inCount--;
+<span class="cstat-no" title="statement not covered" >                if (this.minCount==0){</span>
+<span class="cstat-no" title="statement not covered" >                    this.s</span>etNewProgramStep();
+<span class="cstat-no" title="statement not covered" >                    this.s</span>peechProgramStep();
+                }
+<span class="cstat-no" title="statement not covered" >                b</span>reak;
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>rivate setNewProgramStep(){
+<span class="cstat-no" title="statement not covered" >        this.c</span>urrentRunStepId++;
+<span class="cstat-no" title="statement not covered" >        if (this.currentRunStepId&gt;= this.program.steps.length){</span>
+<span class="cstat-no" title="statement not covered" >            this.p</span>rogramRepeat--;
+<span class="cstat-no" title="statement not covered" >            if(this.programRepeat&lt;= 0){</span>
+<span class="cstat-no" title="statement not covered" >                SpeechService.speak("programma di allenamento " + this.program.name + "</span>terminato");
+<span class="cstat-no" title="statement not covered" >                this.program = n</span>ull;
+<span class="cstat-no" title="statement not covered" >                r</span>eturn;
+            }
+<span class="cstat-no" title="statement not covered" >            this.currentRunStepId=0</span>;
+        }
+<span class="cstat-no" title="statement not covered" >        this.minCount=this.program.steps[this.currentRunStepId].m</span>inutes;
+<span class="cstat-no" title="statement not covered" >        this.kmCount =this.program.steps[this.currentRunStepId].d</span>istanceKm;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private speechProgramStep(<span class="cstat-no" title="statement not covered" >i</span>sFirst:boolean = false)</span>{
+<span class="cstat-no" title="statement not covered" >        if (this.program==null)</span>
+<span class="cstat-no" title="statement not covered" >            r</span>eturn;
+<span class="cstat-no" title="statement not covered" >        if (isFirst === true){</span>
+<span class="cstat-no" title="statement not covered" >            SpeechService.speak("inizia programma di allenamento " + this.program.n</span>ame);
+        }
+<span class="cstat-no" title="statement not covered" >        let text = "</span>è ora di "
+<span class="cstat-no" title="statement not covered" >        let step = this.program.steps[this.c</span>urrentRunStepId]; 
+        switch (step.type) {
+            case RunProgramStepType.Run:
+<span class="cstat-no" title="statement not covered" >                text += "</span>correre per ";
+<span class="cstat-no" title="statement not covered" >                b</span>reak;            
+            case RunProgramStepType.Walk:
+<span class="cstat-no" title="statement not covered" >                text += "</span>camminare per ";
+<span class="cstat-no" title="statement not covered" >                b</span>reak;
+        }
+<span class="cstat-no" title="statement not covered" >        if (step.minutes!=null){</span>
+<span class="cstat-no" title="statement not covered" >            if (step.minutes == 1)</span>
+<span class="cstat-no" title="statement not covered" >                text+= "</span>un minuto";
+            else 
+<span class="cstat-no" title="statement not covered" >                text+= step.minutes + "</span> minuti";
+        }else{
+<span class="cstat-no" title="statement not covered" >            if (step.distanceKm == 1)</span>
+<span class="cstat-no" title="statement not covered" >                text+= "</span>un chilòmetro";
+            else 
+<span class="cstat-no" title="statement not covered" >                text+= step.distanceKm + "</span> chilòmetri";            
+        }
+<span class="cstat-no" title="statement not covered" >        SpeechService.speak(t</span>ext);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    public execute(){        </span>
+    }
+    
+<span class="fstat-no" title="function not covered" >    p</span>ublic stop(){
+<span class="cstat-no" title="statement not covered" >        EventsManager.unsubscribe("TimerService:infoMinElaps", t</span>his);
+<span class="cstat-no" title="statement not covered" >        EventsManager.unsubscribe("SessionDataService:infoKmElaps", t</span>his);
+    }
+    
+<span class="fstat-no" title="function not covered" >    p</span>ublic pause(){
+<span class="cstat-no" title="statement not covered" >        this.isPaused = t</span>rue;        
+    }
+    
+<span class="fstat-no" title="function not covered" >    p</span>ublic resume(){
+<span class="cstat-no" title="statement not covered" >        this.isPaused=f</span>alse;
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jul 08 2016 11:01:41 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

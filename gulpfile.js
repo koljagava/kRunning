@@ -4,10 +4,11 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     argv = process.argv,
     appDir= 'app',
-    testDir= 'test',
+    testDir= './test',
     testDest= 'www/build/test',
-    typingsDir= 'typings';
-
+    typingsDir= 'typings',
+    karma = require('karma'),
+    path = require('path');
 
 /**
  * Ionic hooks
@@ -92,31 +93,28 @@ gulp.task('clean-test', () => {
 
 // run jasmine unit tests using karma with PhantomJS2 in single run mode
 gulp.task('karma', (done) => {
-  let karma = require('karma');
-  let karmaOpts = {
-    configFile: join(process.cwd(), testDir, 'karma.config.js'),
-    singleRun: true,
-  };
-  new karma.Server(karmaOpts, done).start();
+  var karmaOpts = {
+      configFile: path.join(process.cwd(), testDir, 'karma.config.js'),
+      singleRun: true,
+    };
+  new karma.Server(karmaOpts, function() { done(); }).start();
 });
 
 // run jasmine unit tests using karma with Chrome, Karma will be left open in Chrome for debug
 gulp.task('karma-debug', (done) => {
-
-  let karma = require('karma');
-  let karmaOpts = {
-    configFile: join(process.cwd(), testDir, 'karma.config.js'),
+  var karmaOpts = {
+    configFile: path.join(process.cwd(), testDir, 'karma.config.js'),
     singleRun: false,
     browsers: ['Chrome'],
     reporters: ['mocha'],
   };
-  new karma.Server(karmaOpts, done).start();
+  new karma.Server(karmaOpts, function() { done(); }).start();
 });
 
 // run tslint against all typescript
 gulp.task('lint', () => {
-  let tslint = require('gulp-tslint');
-  return gulp.src(join(appDir, '**/*.ts'))
+  var tslint = require('gulp-tslint');
+  return gulp.src(path.join(appDir, '**/*.ts'))
     .pipe(tslint())
     .pipe(tslint.report('verbose'));
 });
@@ -124,8 +122,8 @@ gulp.task('lint', () => {
 // build unit tests, run unit tests, remap and report coverage
 gulp.task('unit-test', (done) => {
   runSequence(
-    ['lint', 'html'],
-    'karma',
+    [/*'lint',*/ 'html',
+    'karma'],
     (done)
   );
 });

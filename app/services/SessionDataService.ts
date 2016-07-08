@@ -126,8 +126,6 @@ export class SessionDataService implements Service {
     private checkSignalAccuracy(accuracy:number){
         this.actualGpsAccuracy = accuracy;
         this.isSignalAccurate  = accuracy <= Configuration.minRecordingAccuracy; 
-        if (this.isSignalAccurate === true && this.previousPosition == null)
-            this.previousPosition = this.currentPosition;
     }
 
     private setCurrentWeather(params : Array<any>){
@@ -135,15 +133,14 @@ export class SessionDataService implements Service {
     }
 
     public execute() {
-        if (this.isSignalAccurate !== true)
-            return;
         if (this.isPaused === true || this.currentPosition == null || 
             this.previousPosition === this.currentPosition)
-            return;            
+            return;
+
         if (this.previousPosition == null){
             this.previousPosition = this.currentPosition;
-            return;
         }
+
         //do calc
         let kPos = new KPosition(this.currentPosition);
         

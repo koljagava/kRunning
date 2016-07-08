@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/services/ServicesHandler.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">app/services/</a> ServicesHandler.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">38.03% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>27/71</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">64.44% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>29/45</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.75% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">27.59% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>16/58</span>
+      </div>
+      <div class='fl pad1y'>
+        <span class="strong">3 statements, 15 branches</span>
+        <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import { Type } from '@angular/core';
+import {ReflectiveInjector, Injectable} from "@angular/core";
+import {Service, ServiceType, ServiceInfo} from "./Service";
+import {Events} from 'ionic-angular';
+import {ServicesBuilder} from './ServicesBuilder';
+import {Logging} from "../utils/Logging";
+&nbsp;
+declare var cordova: any;
+&nbsp;
+@Injectable()
+export class ServicesHandler{
+    public startTime: Date;
+    public stopTime: Date;
+    public servicesInfo: Array&lt;ServiceInfo&gt;;
+    private services 
+    
+    private events : Events;
+    private isPaused : boolean;
+    public isStarted : boolean;
+    
+<span class="fstat-no" title="function not covered" >    public constructor(e</span>vents:Events){
+<span class="cstat-no" title="statement not covered" >        this.events = e</span>vents;
+<span class="cstat-no" title="statement not covered" >        this.isPaused=f</span>alse;
+<span class="cstat-no" title="statement not covered" >        this.isStarted=f</span>alse;
+<span class="cstat-no" title="statement not covered" >        this.servicesInfo = ServicesBuilder.s</span>ervicesInfo;
+<span class="cstat-no" title="statement not covered" >        let injector = ReflectiveInjector.resolveAndCreate(ServicesBuilder.g</span>etProviders());
+<span class="cstat-no" title="statement not covered" >        this.servicesInfo.forEach(<span class="fstat-no" title="function not covered" >s</span>i =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            si.service = injector.get(si.s</span>erviceType);
+        });
+    }
+    
+<span class="fstat-no" title="function not covered" >    p</span>ublic pause():void{
+<span class="cstat-no" title="statement not covered" >        this.isPaused = t</span>rue;
+    }
+    
+<span class="fstat-no" title="function not covered" >    p</span>ublic resume():void{
+<span class="cstat-no" title="statement not covered" >        this.isPaused = f</span>alse;
+    }
+    
+<span class="fstat-no" title="function not covered" >    public getService&lt;T extends Service&gt;(s</span>erviceType: ServiceType):any {
+<span class="cstat-no" title="statement not covered" >        return &lt;T&gt;this.servicesInfo.find(<span class="fstat-no" title="function not covered" >s</span>i =&gt; <span class="cstat-no" title="statement not covered" >s</span>i.serviceType==serviceType).s</span>ervice;
+    }
+    
+<span class="fstat-no" title="function not covered" >    p</span>rivate enableBackgroundMode(){
+<span class="cstat-no" title="statement not covered" >        if(cordova == null || cordova.plugins.backgroundMode == null){</span>
+<span class="cstat-no" title="statement not covered" >            Logging.log(this, '</span>Error enabling backgroundMode plugin');
+<span class="cstat-no" title="statement not covered" >            r</span>eturn;
+        }        
+<span class="cstat-no" title="statement not covered" >        cordova.plugins.backgroundMode.setDefaults({</span>
+            title: 'kkRun',
+            ticker: 'text1',
+            text: 'text2'
+        });
+<span class="cstat-no" title="statement not covered" >        cordova.plugins.backgroundMode.e</span>nable();
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>rivate disableBackgroundMode(){
+<span class="cstat-no" title="statement not covered" >        if(cordova == null || cordova.plugins.backgroundMode == null){</span>
+<span class="cstat-no" title="statement not covered" >            Logging.log(this, '</span>Error disabling backgroundMode plugin');
+<span class="cstat-no" title="statement not covered" >            r</span>eturn;
+        }        
+<span class="cstat-no" title="statement not covered" >        cordova.plugins.backgroundMode.d</span>isable();
+    }
+    
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    p</span>ublic start(): void {</span>
+<span class="cstat-no" title="statement not covered" >        this.isStarted = t</span>rue;
+<span class="cstat-no" title="statement not covered" >        this.e</span>nableBackgroundMode();
+<span class="cstat-no" title="statement not covered" >        let handler = t</span>his;
+<span class="cstat-no" title="statement not covered" >        this.startTime= new D</span>ate();
+<span class="cstat-no" title="statement not covered" >        this.servicesInfo.forEach(<span class="fstat-no" title="function not covered" >s</span>i =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            if(si.iId!=null)</span>
+<span class="cstat-no" title="statement not covered" >                clearInterval(si.i</span>Id);
+<span class="cstat-no" title="statement not covered" >            si.service.s</span>tart();
+<span class="cstat-no" title="statement not covered" >            if (si.interval != null){</span>
+<span class="cstat-no" title="statement not covered" >                si.nextExec = new Date(this.startTime.v</span>alueOf());
+<span class="cstat-no" title="statement not covered" >                si.iId = setInterval(<span class="fstat-no" title="function not covered" >(</span>)=&gt;{</span>
+<span class="cstat-no" title="statement not covered" >                        if(handler.isPaused==true)</span>
+<span class="cstat-no" title="statement not covered" >                            r</span>eturn;
+<span class="cstat-no" title="statement not covered" >                        si.nextExec = new Date(this.startTime.valueOf() + si.i</span>nterval);                     
+<span class="cstat-no" title="statement not covered" >                        si.service.e</span>xecute();
+                    }
+                    , si.interval);
+            }else{
+<span class="cstat-no" title="statement not covered" >                si.nextExec = n</span>ull;
+<span class="cstat-no" title="statement not covered" >                si.iId = n</span>ull;
+            }
+        });
+    }
+    
+<span class="fstat-no" title="function not covered" >    p</span>ublic stop(): void {
+<span class="cstat-no" title="statement not covered" >        this.isStarted=f</span>alse;
+<span class="cstat-no" title="statement not covered" >        this.servicesInfo.forEach(<span class="fstat-no" title="function not covered" >(s</span>erviceInfo)=&gt;{</span>
+<span class="cstat-no" title="statement not covered" >                serviceInfo.service.s</span>top();
+<span class="cstat-no" title="statement not covered" >                if (serviceInfo.iId != null) </span>
+<span class="cstat-no" title="statement not covered" >                    clearInterval(serviceInfo.i</span>Id);
+        });
+<span class="cstat-no" title="statement not covered" >        this.d</span>isableBackgroundMode();
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jul 08 2016 11:01:41 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/Configuration.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">app/</a> Configuration.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>66/66</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>61/61</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import {Globalization} from 'ionic-native';
+import {LocalStorage} from './utils/Storage';
+export enum RunProgramStepType{
+    Walk,
+    Run,
+}
+&nbsp;
+export class RunProgramStep{
+    public type : RunProgramStepType;
+    public minutes : number;
+    public distanceKm : number;
+&nbsp;
+    constructor(type:RunProgramStepType, minutes:number, distanceKm?:number){
+        this.type = type;
+        this.minutes = minutes;
+        this.distanceKm = distanceKm;
+    }
+}
+&nbsp;
+export class RunProgram{
+    public className : string;
+    public name : string;
+    public steps : Array&lt;RunProgramStep&gt;;
+    public times : number
+&nbsp;
+    constructor(className:string, name:string, times:number, steps:Array&lt;RunProgramStep&gt;){
+        this.className = className;
+        this.name = name;
+        this.times = times;
+        this.steps = steps;
+    }
+}
+&nbsp;
+export class ConfigurationType{
+    public heightCm = null;
+    public weightKg = null;
+    public program  : RunProgram = null;
+    public programStartDelayMin = 0;
+    public lang = Globalization.getLocaleName();
+    public mode = "md";
+    public unit = "kms";
+    public minRecordingAccuracy = 22;
+    public minRecordingGap = 5;
+    public minRecordingSpeed = 3;
+    public maxRecordingSpeed = 38;
+    public debugEnabled = false; 
+    public infoTimeElaps = 1; //espresso in minuti, 0 = disabilitato
+    public speechEnabled = true;
+    public startDelaySecs = 10;
+    public globals = {
+        heartRate: {
+            service: '180d',
+            measurement: '2a37'
+        },
+        radius: {
+            miles: 3959,
+            kms: 6371
+        },
+        tounit: {
+            miles: 1609.344,
+            kms: 1000
+        },
+        pace: {
+            miles: 11.990880236041,
+            kms: 4.62963888888889
+        },
+        speed: {
+            miles: 2.2369,
+            kms: 3.6
+        },
+        pacelabel: {
+            miles: ' min/mile',
+            kms: ' min/km'
+        },
+        speedlabel: {
+            miles: ' mph',
+            kms: ' kph'
+        },
+        distancelabel: {
+            miles: ' miles',
+            kms: ' km'
+        }
+    };
+    public stdPrograms : Array&lt;RunProgram&gt; = this.setStdPrograms();
+&nbsp;
+    public setStdPrograms():Array&lt;RunProgram&gt; {
+        let stdPrograms = new Array&lt;RunProgram&gt;();
+        //** start to run **
+        // Step 1
+        let prg = new RunProgram("Gialla", "Livello 1", 8, [new RunProgramStep(RunProgramStepType.Walk, 2), new RunProgramStep(RunProgramStepType.Run, 1)]);
+        stdPrograms.push(prg);
+&nbsp;
+        // Step 2
+        prg = new RunProgram("Gialla", "Livello 2", 6, [new RunProgramStep(RunProgramStepType.Walk, 3), new RunProgramStep(RunProgramStepType.Run, 2)]);
+        stdPrograms.push(prg);
+&nbsp;
+        // Step 3
+        prg = new RunProgram("Gialla", "Livello 3", 6, [new RunProgramStep(RunProgramStepType.Walk, 3), new RunProgramStep(RunProgramStepType.Run, 4)]);
+        stdPrograms.push(prg);
+&nbsp;
+        // Step 4
+        prg = new RunProgram("Rossa", "Livello 4", 5, [new RunProgramStep(RunProgramStepType.Walk, 3), new RunProgramStep(RunProgramStepType.Run, 6)]);
+        stdPrograms.push(prg);
+&nbsp;
+        // Step 5
+        prg = new RunProgram("Rossa", "Livello 5", 4, [new RunProgramStep(RunProgramStepType.Walk, 3), new RunProgramStep(RunProgramStepType.Run, 10)]);
+        stdPrograms.push(prg);
+&nbsp;
+        // Step 6
+        prg = new RunProgram("Rossa", "Livello 6", 3, [new RunProgramStep(RunProgramStepType.Walk, 3), new RunProgramStep(RunProgramStepType.Run, 15)]);
+        stdPrograms.push(prg);
+&nbsp;
+        // Step 7
+        prg = new RunProgram("Nera", "Livello 7", 2, [new RunProgramStep(RunProgramStepType.Walk, 5), new RunProgramStep(RunProgramStepType.Run, 25)]);
+        stdPrograms.push(prg);
+&nbsp;
+        // Step 8
+        prg = new RunProgram("Nera", "Livello 8", 1, [new RunProgramStep(RunProgramStepType.Walk, 5), new RunProgramStep(RunProgramStepType.Run, 35), new RunProgramStep(RunProgramStepType.Walk, 5), new RunProgramStep(RunProgramStepType.Run, 15)]);
+        stdPrograms.push(prg);
+&nbsp;
+        // Step 9
+        prg = new RunProgram("Nera", "Livello 9", 1, [new RunProgramStep(RunProgramStepType.Walk, 5), new RunProgramStep(RunProgramStepType.Run, 45), new RunProgramStep(RunProgramStepType.Walk, 5), new RunProgramStep(RunProgramStepType.Run, 15)]);
+        stdPrograms.push(prg);
+&nbsp;
+        // Step 10
+        prg = new RunProgram("Nera", "Livello 10", 1, [new RunProgramStep(RunProgramStepType.Walk, 5), new RunProgramStep(RunProgramStepType.Run, null, 10)]);
+        stdPrograms.push(prg);
+&nbsp;
+        return stdPrograms;
+    }
+}
+&nbsp;
+export var Configuration : ConfigurationType = LocalStorage.getObject&lt;ConfigurationType&gt;('config') || new ConfigurationType();</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jul 08 2016 11:01:41 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

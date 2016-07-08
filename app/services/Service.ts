@@ -13,7 +13,7 @@ export interface Service{
 }
 
 export class ServiceInfo{
-    public iId: number;
+    public iId: NodeJS.Timer;
     public interval : number;
     public nextExec : Date;
     public serviceProviders :Array<Type|any[]>;

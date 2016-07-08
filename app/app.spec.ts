@@ -3,6 +3,7 @@ import {
 }                               from '@angular/platform-browser-dynamic/testing';
 import { setBaseTestProviders } from '@angular/core/testing';
 import { KRunning }             from './app';
+import {SessionsPage} from './pages/sessions/sessions';
 
 setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
@@ -14,12 +15,8 @@ class MockClass {
       resolve();
     });
   }
-
-  public close(): any {
-    return true;
-  }
-
-  public setRoot(): any {
+  
+  public push(page:any) :any {
     return true;
   }
 }
@@ -34,21 +31,24 @@ describe('kRunning', () => {
     expect(kRunningApp['pages'].length).toEqual(1);
   });
 
-  it('initialises with a root page', () => {
-    expect(kRunningApp['rootPage']).not.toBe(null);
+  it('initialises with SessionsPage as root page', () => {
+    expect(kRunningApp['rootPage']).toBe(SessionsPage);
   });
-
+  
+  it('initialises with a nav', () => {
+    expect(kRunningApp['nav']).not.toBe(null);
+  });
+  
   it('initialises with an app', () => {
     expect(kRunningApp['app']).not.toBe(null);
   });
 
   it('opens a page', () => {
-    spyOn(kRunningApp['menu'], 'close');
-    // cant be bothered to set up DOM testing for app.ts to get access to @ViewChild (Nav)
-    kRunningApp['nav'] = (<any>kRunningApp['menu']);
-    spyOn(kRunningApp['nav'], 'setRoot');
-    kRunningApp.openPage(kRunningApp['pages'][1]);
-    expect(kRunningApp['menu']['close']).toHaveBeenCalled();
-    expect(kRunningApp['nav'].setRoot).toHaveBeenCalledWith(Page2);
+    spyOn(kRunningApp, 'openPage');
+    //spyOn(kRunningApp.nav, 'push');
+    let page = kRunningApp['pages'][0];
+    kRunningApp.openPage(page);
+    expect(kRunningApp.openPage).toHaveBeenCalledWith(page);
+    //expect(kRunningApp.nav.push).toHaveBeenCalledWith(page.component);
   });
 });
