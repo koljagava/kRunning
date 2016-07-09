@@ -9,9 +9,15 @@ class DataLog{
 
     constructor(caller : Object, err : any){
         this.date = new Date();
-        this.caller = typeof caller;
+        this.caller = this.getClassName(caller);
         this.message = err.message||null;
         this.stack = err.stack||null;
+    }
+
+    private getClassName(obj : Object) : string {
+        var funcNameRegex = /function (.{1,})\(/;
+        var results  = (funcNameRegex).exec(this["constructor"].toString());
+        return (results && results.length > 1) ? results[1] : "unknown";
     }
 }
 
@@ -19,6 +25,7 @@ export class Logging{
     private static dataLogs : Array<DataLog> = LocalStorage.getObject<Array<DataLog>>("debug_dataLogs")||new Array<DataLog>(); 
     
     public static log(caller: Object, error : Error|string){
+
         if (Configuration.debugEnabled!==true)
             return;
         let err: Error;
