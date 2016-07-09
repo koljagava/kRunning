@@ -117,10 +117,11 @@ export class SessionDataService implements Service {
             LocalStorage.setObject('sessions', sessions);
     }
 
-    private setCurrentPosition(params : Array<any>){
-        this.checkSignalAccuracy(this.currentPosition.coords.accuracy);
+    private setCurrentPosition(params : Array<any>) {
+        let pos = <Position>params[0];
+        this.checkSignalAccuracy(pos.coords.accuracy);
         if (this.isSignalAccurate)
-            this.currentPosition = <Position>params[0];
+            this.currentPosition = pos;
     }
 
     private checkSignalAccuracy(accuracy:number){
