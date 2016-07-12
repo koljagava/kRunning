@@ -1,40 +1,45 @@
-import {Page, App, Platform, IonicApp} from 'ionic-angular';
-import {StatusBar} from 'ionic-native';
-import {ViewChild} from '@angular/core';
-import {HomePage} from './pages/home/home';
-import {SessionsPage} from './pages/sessions/sessions';
-import {SettingsPage} from './pages/settings/settings';
+import {Page, App, Platform, IonicApp} from "ionic-angular";
+import {StatusBar} from "ionic-native";
+import {enableProdMode, ViewChild} from "@angular/core";
+import {HomePage} from "./pages/home/home";
+import {SessionsPage} from "./pages/sessions/sessions";
+import {SettingsPage} from "./pages/settings/settings";
+import {Configuration} from "./Configuration";
+
+if (Configuration.debugEnabled === false) {
+  enableProdMode();
+}
 
 class MenuPage {
-    private static menu :MenuPage[]; 
+    private static menu : MenuPage[];
     public component : any;
     public icon : string;
-    public title: string; 
+    public title: string;
     static getMenu(): MenuPage[] {
-        if(this.menu!=null){
+        if (this.menu != null) {
             return this.menu;
         }
         this.menu = [
-          //{ title: 'Sessions', component: SessionsPage, icon: 'walk' },
-          //{ title: 'Session', component: Session, icon: 'boat' },
-          //{ title: 'Home', component: HomePage,  icon: 'beer' },
-          { title: 'Settings', component: SettingsPage,  icon: 'settings' }
-        ];        
-        return this.menu;      
+          // { title: 'Sessions', component: SessionsPage, icon: 'walk' },
+          // { title: 'Session', component: Session, icon: 'boat' },
+          // { title: 'Home', component: HomePage,  icon: 'beer' },
+          { title: "Settings", component: SettingsPage,  icon: "settings" }
+        ];
+        return this.menu;
     }
 }
 
 
 @App({
-  templateUrl: 'build/app.html',
+  templateUrl: "build/app.html",
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 export class KRunning {
   private app : IonicApp;
   private platform : Platform;
-  private pages :any[];
+  private pages : any[];
   private rootPage : any;
-  @ViewChild('kMainNav') nav;
+  @ViewChild("kMainNav") nav;
 
   constructor(app : IonicApp, platform : Platform) {
     this.app = app;
@@ -49,7 +54,7 @@ export class KRunning {
   private initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+      // Here you platformcan do any higher level native things you might need.
       StatusBar.styleDefault();
     });
   }

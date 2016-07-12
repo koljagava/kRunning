@@ -15,13 +15,20 @@
   <p>
      Session Time : {{sessionData.duration | date:"HH:mm:ss"}}
   </p>
+  <ion-row>
+    <ion-col>
+      <p>
+        Speed : {{sessionData.speed | number:'1.2-2'}} km/h
+      </p>
+      <p>
+        Distance : {{sessionData.flatDistance | number:'1.2-2'}} km
+      </p>
+    </ion-col>
+  <ion-col>
+    <weather-viewer [weather]="sessionData.lastWeather"></weather-viewer>
+  </ion-col>    
+  </ion-row>
   <p>
-    Speed : {{sessionData.speed | number:'1.2-2'}} km/h
-  </p>
-  <p>
-    Distance : {{sessionData.flatDistance | number:'1.2-2'}} km
-  </p>
-  <p>
-    <kk-mapviewer [positions]="sessionData.positions"></kk-mapviewer>
+    <map-viewer [positions]="sessionData.positions"></map-viewer>
   </p>
 </ion-content>

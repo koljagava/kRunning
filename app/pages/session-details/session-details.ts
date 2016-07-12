@@ -1,7 +1,7 @@
-import {Page, NavController, NavParams} from 'ionic-angular';
-import {SessionData} from '../../services/SessionDataService'
-import {MapViewer} from '../../components/mapviewer/MapViewer';
-
+import {Page, NavController, NavParams} from "ionic-angular";
+import {SessionData} from "../../services/SessionDataService";
+import {MapViewer} from "../../components/map-viewer/map-viewer";
+import {WeatherView} from "../../components/weather-viewer/weather-viewer";
 /*
   Generated class for the SessionDetailsPage page.
 
@@ -9,14 +9,14 @@ import {MapViewer} from '../../components/mapviewer/MapViewer';
   Ionic pages and navigation.
 */
 @Page({
-  templateUrl: 'build/pages/session-details/session-details.html',
-  directives : [MapViewer]
+
+  templateUrl: "build/pages/session-details/session-details.html",
+  directives : [MapViewer, WeatherView]
 })
 export class SessionDetailsPage {
-  public sessionData : SessionData;
-  public fnCallBack : Function
+  public sessionData: SessionData;
+  public fnCallBack: Function;
   constructor(public nav: NavController, navParams: NavParams) {
       this.sessionData = navParams.get("sessionData");
   }
-
 }

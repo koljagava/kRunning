@@ -6,6 +6,8 @@
     <button *ngIf="servicesHandler.isStarted==false" primary block (click)="start()">Start</button>
     <button *ngIf="servicesHandler.isStarted==true" danger block (click)="stop()">Stop</button>
   </p>
+  <ion-row>
+  <ion-col>
   <p class="session">
     Speed : {{sessionDataService.sessionData.speed | number:'1.2-2'}} km/h
   </p>
@@ -15,7 +17,12 @@
   <p class="session">
     GPS Accuracy : {{sessionDataService.actualGpsAccuracy  | number:'1.2-2'}} m
   </p>
+  </ion-col>
+  <ion-col>
+    <weather-viewer [weather]="sessionDataService.sessionData.lastWeather"></weather-viewer>
+  </ion-col>
+  </ion-row>
   <p class="session">
-    <kk-mapviewer></kk-mapviewer>
+    <map-viewer></map-viewer>
   </p>
 </ion-content>

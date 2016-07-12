@@ -16,7 +16,7 @@ class DataLog{
 
     private getClassName(obj : Object) : string {
         var funcNameRegex = /function (.{1,})\(/;
-        var results  = (funcNameRegex).exec(this["constructor"].toString());
+        var results  = (funcNameRegex).exec(obj["constructor"].toString());
         return (results && results.length > 1) ? results[1] : "unknown";
     }
 }

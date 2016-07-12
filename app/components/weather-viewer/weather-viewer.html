@@ -1,0 +1,22 @@
+<!--
+  Generated template for the WeatherViewer component.
+
+  See https://angular.io/docs/ts/latest/api/core/ComponentMetadata-class.html
+  for more info on Angular 2 Components.
+-->
+<div *ngIf="weather != null">
+<ion-row>
+  <ion-col>
+    <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png">
+  </ion-col>
+  <ion-col>
+    {{weather.weather[0].description}}
+  </ion-col>
+</ion-row>
+<ion-row>
+  Temperatura : {{weather.main.temp}} °C
+</ion-row>
+<ion-row>
+  Umidità : {{weather.main.humidity}} %
+</ion-row>
+</div>

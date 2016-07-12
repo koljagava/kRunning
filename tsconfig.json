@@ -4,7 +4,8 @@
     "module": "commonjs",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "mapRoot" : "/home/kolja/workspace/kRunning/app/"
   },
   "filesGlob": [
     "**/*.ts",

@@ -1,29 +1,29 @@
-import {Globalization} from 'ionic-native';
-import {LocalStorage} from './utils/Storage';
-export enum RunProgramStepType{
+import {Globalization} from "ionic-native";
+import {LocalStorage} from "./utils/Storage";
+export enum RunProgramStepType {
     Walk,
     Run,
 }
 
-export class RunProgramStep{
-    public type : RunProgramStepType;
-    public minutes : number;
-    public distanceKm : number;
+export class RunProgramStep {
+    public type: RunProgramStepType;
+    public minutes: number;
+    public distanceKm: number;
 
-    constructor(type:RunProgramStepType, minutes:number, distanceKm?:number){
+    constructor(type: RunProgramStepType, minutes: number, distanceKm?: number) {
         this.type = type;
         this.minutes = minutes;
         this.distanceKm = distanceKm;
     }
 }
 
-export class RunProgram{
-    public className : string;
-    public name : string;
-    public steps : Array<RunProgramStep>;
-    public times : number
+export class RunProgram {
+    public className: string;
+    public name: string;
+    public steps: Array<RunProgramStep>;
+    public times: number;
 
-    constructor(className:string, name:string, times:number, steps:Array<RunProgramStep>){
+    constructor(className: string, name: string, times: number, steps: Array<RunProgramStep>) {
         this.className = className;
         this.name = name;
         this.times = times;
@@ -31,10 +31,10 @@ export class RunProgram{
     }
 }
 
-export class ConfigurationType{
+export class ConfigurationType {
     public heightCm = null;
     public weightKg = null;
-    public program  : RunProgram = null;
+    public program: RunProgram = null;
     public programStartDelayMin = 0;
     public lang = Globalization.getLocaleName();
     public mode = "md";
@@ -43,14 +43,14 @@ export class ConfigurationType{
     public minRecordingGap = 5;
     public minRecordingSpeed = 3;
     public maxRecordingSpeed = 38;
-    public debugEnabled = false; 
-    public infoTimeElaps = 1; //espresso in minuti, 0 = disabilitato
+    public debugEnabled = false;
+    public infoTimeElaps = 1; // espresso in minuti, 0 = disabilitato
     public speechEnabled = true;
     public startDelaySecs = 10;
     public globals = {
         heartRate: {
-            service: '180d',
-            measurement: '2a37'
+            service: "180d",
+            measurement: "2a37"
         },
         radius: {
             miles: 3959,
@@ -69,23 +69,23 @@ export class ConfigurationType{
             kms: 3.6
         },
         pacelabel: {
-            miles: ' min/mile',
-            kms: ' min/km'
+            miles: " min/mile",
+            kms: " min/km"
         },
         speedlabel: {
-            miles: ' mph',
-            kms: ' kph'
+            miles: " mph",
+            kms: " kph"
         },
         distancelabel: {
-            miles: ' miles',
-            kms: ' km'
+            miles: " miles",
+            kms: " km"
         }
     };
-    public stdPrograms : Array<RunProgram> = this.setStdPrograms();
+    public stdPrograms: Array<RunProgram> = this.setStdPrograms();
 
-    public setStdPrograms():Array<RunProgram> {
+    public setStdPrograms(): Array<RunProgram> {
         let stdPrograms = new Array<RunProgram>();
-        //** start to run **
+        // ** start to run **
         // Step 1
         let prg = new RunProgram("Gialla", "Livello 1", 8, [new RunProgramStep(RunProgramStepType.Walk, 2), new RunProgramStep(RunProgramStepType.Run, 1)]);
         stdPrograms.push(prg);
@@ -130,4 +130,4 @@ export class ConfigurationType{
     }
 }
 
-export var Configuration : ConfigurationType = LocalStorage.getObject<ConfigurationType>('config') || new ConfigurationType();
+export var Configuration: ConfigurationType = LocalStorage.getObject<ConfigurationType>("config") || new ConfigurationType();

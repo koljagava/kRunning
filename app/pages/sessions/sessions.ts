@@ -28,6 +28,12 @@ export class SessionsPage {
         });
   }
 
+  public deleteSession(session : SessionData){
+    this.sessions.splice(this.sessions.indexOf(session),1);
+    LocalStorage.setObject('sessions', this.sessions);
+    this.loadSessions();
+  }
+
   public newSession(){
     let modSess = Modal.create(Session);
     modSess.onDismiss(() => {
