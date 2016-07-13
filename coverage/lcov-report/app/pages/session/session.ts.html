@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">70.59% </span>
+        <span class="strong">71.43% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>24/34</span>
+        <span class='fraction'>25/35</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">93.55% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>3/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">56.52% </span>
+        <span class="strong">58.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>13/23</span>
+        <span class='fraction'>14/24</span>
       </div>
       <div class='fl pad1y'>
         <span class="strong">3 statements, 15 branches</span>
@@ -87,12 +87,14 @@
 38
 39
 40
-41</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+41
+42</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -127,43 +129,44 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Page, ViewController, Events} from 'ionic-angular';
-import {ServicesHandler} from '../../services/ServicesHandler';
-import {ServicesBuilder} from '../../services/ServicesBuilder';
-import {TimerService} from '../../services/TimerService';
-import {SessionDataService} from '../../services/SessionDataService';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Page, ViewController, Events} from "ionic-angular";
+import {ServicesHandler} from "../../services/ServicesHandler";
+import {ServicesBuilder} from "../../services/ServicesBuilder";
+import {TimerService} from "../../services/TimerService";
+import {SessionDataService} from "../../services/SessionDataService";
 import {Configuration} from "../../Configuration";
-import {MapViewer} from '../../components/mapviewer/MapViewer';
+import {MapViewer} from "../../components/map-viewer/map-viewer";
+import {WeatherView} from "../../components/weather-viewer/weather-viewer";
 &nbsp;
 @Page({
-  templateUrl: 'build/pages/session/session.html',
-  providers:ServicesBuilder.getProviders([Events, ServicesHandler]),
-  directives : [MapViewer]
+  templateUrl: "build/pages/session/session.html",
+  providers: ServicesBuilder.getProviders([Events, ServicesHandler]),
+  directives : [MapViewer, WeatherView]
 })
 &nbsp;
 export class Session {
-    private events : Events;
-    private servicesHandler : ServicesHandler;
-    private timer : TimerService;
-    private sessionDataService : SessionDataService;
-    private viewCtrl : ViewController;
-    public <span class="cstat-no" title="statement not covered" >isStarted ='</span>secondary';
+    private events: Events;
+    private servicesHandler: ServicesHandler;
+    private timer: TimerService;
+    private sessionDataService: SessionDataService;
+    private viewCtrl: ViewController;
+    public <span class="cstat-no" title="statement not covered" >isStarted = "</span>secondary";
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public constructor(viewCtrl: ViewController, servicesHandler : ServicesHandler, e</span>vents : Events){
+<span class="fstat-no" title="function not covered" >    public constructor(viewCtrl: ViewController, servicesHandler: ServicesHandler, e</span>vents: Events) {
 <span class="cstat-no" title="statement not covered" >        this.viewCtrl = v</span>iewCtrl;
 <span class="cstat-no" title="statement not covered" >        this.events = e</span>vents;
 <span class="cstat-no" title="statement not covered" >        this.servicesHandler = s</span>ervicesHandler;
 <span class="cstat-no" title="statement not covered" >        this.timer = servicesHandler.getService(TimerService)</span>;
 <span class="cstat-no" title="statement not covered" >        this.sessionDataService = servicesHandler.getService(SessionDataService)</span>;
     }
-         
-<span class="fstat-no" title="function not covered" >    p</span>ublic stop():void{
-<span class="cstat-no" title="statement not covered" >        if(this.servicesHandler.isStarted===true)</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>ublic stop(): void {
+<span class="cstat-no" title="statement not covered" >        if (this.servicesHandler.isStarted === true)</span>
 <span class="cstat-no" title="statement not covered" >            this.servicesHandler.s</span>top();
 <span class="cstat-no" title="statement not covered" >        this.viewCtrl.d</span>ismiss();
     }
-        
-<span class="fstat-no" title="function not covered" >    p</span>ublic start():void{
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>ublic start(): void {
 <span class="cstat-no" title="statement not covered" >        this.servicesHandler.s</span>tart();
     }
 }
@@ -173,7 +176,7 @@ export class Session {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jul 11 2016 04:24:56 GMT+0200 (CEST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jul 13 2016 19:34:22 GMT+0200 (CEST)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

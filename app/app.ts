@@ -11,9 +11,9 @@ if (Configuration.debugEnabled === false) {
 }
 
 class MenuPage {
-    private static menu : MenuPage[];
-    public component : any;
-    public icon : string;
+    private static menu: MenuPage[];
+    public component: any;
+    public icon: string;
     public title: string;
     static getMenu(): MenuPage[] {
         if (this.menu != null) {
@@ -35,13 +35,13 @@ class MenuPage {
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 export class KRunning {
-  private app : IonicApp;
-  private platform : Platform;
-  private pages : any[];
-  private rootPage : any;
+  private app: IonicApp;
+  private platform: Platform;
+  private pages: any[];
+  private rootPage: any;
   @ViewChild("kMainNav") nav;
 
-  constructor(app : IonicApp, platform : Platform) {
+  constructor(app: IonicApp, platform: Platform) {
     this.app = app;
     this.platform = platform;
     this.initializeApp();

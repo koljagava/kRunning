@@ -145,11 +145,11 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import {Page, NavController} from 'ionic-angular';
-import {Input, OnDestroy} from '@angular/core';
-import {Configuration} from '../../Configuration'
-import {Converter} from '../../utils/Converter'
-import {LocalStorage} from "../../utils/Storage"
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import {Page, NavController} from "ionic-angular";
+import {Input, OnDestroy} from "@angular/core";
+import {Configuration} from "../../Configuration";
+import {Converter} from "../../utils/Converter";
+import {LocalStorage} from "../../utils/Storage";
 /*
   Generated class for the SettingsPage page.
 &nbsp;
@@ -157,41 +157,41 @@ import {LocalStorage} from "../../utils/Storage"
   Ionic pages and navigation.
 */
 @Page({
-  templateUrl: 'build/pages/settings/settings.html',
+  templateUrl: "build/pages/settings/settings.html",
 })
-export class SettingsPage implements OnDestroy{
-  @Input() 
-  public config : any;
+export class SettingsPage implements OnDestroy {
+  @Input()
+  public config: any;
 <span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" >n</span></span>av: NavController) {
 <span class="cstat-no" title="statement not covered" >    this.config = Configuration;</span>
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  p</span>ublic get programName():string{
-<span class="cstat-no" title="statement not covered" >    return this.config.program==null?"":this.config.program.n</span>ame;
-  }  
+<span class="fstat-no" title="function not covered" >  p</span>ublic get programName(): string{
+<span class="cstat-no" title="statement not covered" >    return this.config.program == null ? "" : this.config.program.n</span>ame;
+  }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  public set programName(v</span>alue:string){
-<span class="cstat-no" title="statement not covered" >     this.config.program = t</span>his.config.stdPrograms.find(<span class="fstat-no" title="function not covered" >(p</span>:any)=&gt;{<span class="cstat-no" title="statement not covered" >return p.name == v</span>alue });
-  }  
+<span class="fstat-no" title="function not covered" >  public set programName(v</span>alue: string){
+<span class="cstat-no" title="statement not covered" >     this.config.program = t</span>his.config.stdPrograms.find(<span class="fstat-no" title="function not covered" >(p</span>: any) =&gt; {<span class="cstat-no" title="statement not covered" >return p.name === v</span>alue; });
+  }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  p</span>ublic getBmiInfo(){
+<span class="fstat-no" title="function not covered" >  p</span>ublic getBmiInfo() {
 <span class="cstat-no" title="statement not covered" >    let bmiClass =  Converter.getBmiClass(Converter.bmiClaculator(this.config.heightCm, this.config.w</span>eightKg));
 <span class="cstat-no" title="statement not covered" >    if (bmiClass == null)</span>
 <span class="cstat-no" title="statement not covered" >      return "</span>";
-    else{
+    else {
 <span class="cstat-no" title="statement not covered" >      let diffWheight = (this.config.weightKg - this.standardWeigth(this.config.h</span>eightCm));
-<span class="cstat-no" title="statement not covered" >      if (diffWheight&lt;0)</span>
-<span class="cstat-no" title="statement not covered" >        return "[" +bmiClass.descr + "</span>]";
+<span class="cstat-no" title="statement not covered" >      if (diffWheight &lt; 0)</span>
+<span class="cstat-no" title="statement not covered" >        return "[" + bmiClass.descr + "</span>]";
       else
-<span class="cstat-no" title="statement not covered" >        return "[" +bmiClass.descr + " (" + diffWheight.toFixed(1) + "</span> Kg)]";      
+<span class="cstat-no" title="statement not covered" >        return "[" + bmiClass.descr + " (" + diffWheight.toFixed(1) + "</span> Kg)]";
     }
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  public standardWeigth(h</span>eightCm:number){
+<span class="fstat-no" title="function not covered" >  public standardWeigth(h</span>eightCm: number) {
 <span class="cstat-no" title="statement not covered" >    return Converter.standardWeigth(h</span>eightCm);
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  p</span>ublic ngOnDestroy(){
+<span class="fstat-no" title="function not covered" >  p</span>ublic ngOnDestroy() {
 <span class="cstat-no" title="statement not covered" >    LocalStorage.setObject("config", this.c</span>onfig);
   }
 }</pre></td></tr>
@@ -200,7 +200,7 @@ export class SettingsPage implements OnDestroy{
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jul 11 2016 04:24:56 GMT+0200 (CEST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jul 13 2016 19:34:22 GMT+0200 (CEST)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

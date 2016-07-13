@@ -2,27 +2,30 @@
   <h1 style="text-align:center" class="session">
      {{timer.toString()}}
   </h1>
-  <p>
     <button *ngIf="servicesHandler.isStarted==false" primary block (click)="start()">Start</button>
     <button *ngIf="servicesHandler.isStarted==true" danger block (click)="stop()">Stop</button>
-  </p>
-  <ion-row>
-  <ion-col>
-  <p class="session">
-    Speed : {{sessionDataService.sessionData.speed | number:'1.2-2'}} km/h
-  </p>
-  <p class="session">
-    Distance : {{sessionDataService.sessionData.flatDistance | number:'1.2-2'}} km
-  </p>
-  <p class="session">
-    GPS Accuracy : {{sessionDataService.actualGpsAccuracy  | number:'1.2-2'}} m
-  </p>
-  </ion-col>
-  <ion-col>
-    <weather-viewer [weather]="sessionDataService.sessionData.lastWeather"></weather-viewer>
-  </ion-col>
-  </ion-row>
-  <p class="session">
-    <map-viewer></map-viewer>
-  </p>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-row class="session">
+          <ion-col>
+              <ion-label>Speed</ion-label>
+              <ion-label>Distance</ion-label>
+              <ion-label>GPS Accuracy</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label secondary>{{sessionDataService.sessionData.speed | number:'1.2-2'}} km/h</ion-label>
+            <ion-label secondary>{{sessionDataService.sessionData.flatDistance | number:'1.2-2'}} km</ion-label>
+            <ion-label secondary *ngIf="sessionDataService.isSignalAccurate==true">{{sessionDataService.actualGpsAccuracy | number:'1.2-2'}} m</ion-label>
+            <ion-label danger *ngIf="sessionDataService.isSignalAccurate==false">{{sessionDataService.actualGpsAccuracy | number:'1.2-2'}} m</ion-label>
+            <ion-label danger *ngIf="sessionDataService.isSignalAccurate==null">&infin;</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col>
+        <weather-viewer [weather]="sessionDataService.sessionData.lastWeather"</weather-viewer>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <map-viewer></map-viewer>
 </ion-content>

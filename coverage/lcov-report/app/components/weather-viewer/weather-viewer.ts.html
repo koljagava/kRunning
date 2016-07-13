@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for app/pages/session-details/session-details.ts</title>
+    <title>Code coverage report for app/components/weather-viewer/weather-viewer.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../index.html">all files</a> / <a href="index.html">app/pages/session-details/</a> session-details.ts
+      <a href="../../../index.html">all files</a> / <a href="index.html">app/components/weather-viewer/</a> weather-viewer.ts
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">90.48% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>19/21</span>
+        <span class='fraction'>18/18</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,12 +35,12 @@
         <span class='fraction'>3/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">88.89% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>8/9</span>
+        <span class='fraction'>7/7</span>
       </div>
       <div class='fl pad1y'>
-        <span class="strong">3 statements, 15 branches</span>
+        <span class="strong">3 statements, 12 branches</span>
         <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
       </div>
     </div>
@@ -65,14 +65,8 @@
 16
 17
 18
-19
-20
-21
-22
-23</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+19</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -85,32 +79,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Page, NavController, NavParams} from "ionic-angular";
-import {SessionData} from "../../services/SessionDataService";
-import {MapViewer} from "../../components/map-viewer/map-viewer";
-import {WeatherView} from "../../components/weather-viewer/weather-viewer";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Component, Input} from "@angular/core";
+&nbsp;
 /*
-  Generated class for the SessionDetailsPage page.
+  Generated class for the WeatherView component.
 &nbsp;
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
+  See https://angular.io/docs/ts/latest/api/core/ComponentMetadata-class.html
+  for more info on Angular 2 Components.
 */
-@Page({
-&nbsp;
-  templateUrl: "build/pages/session-details/session-details.html",
-  directives : [MapViewer, WeatherView]
+@Component({
+  selector: "weather-viewer",
+  templateUrl: "build/components/weather-viewer/weather-viewer.html",
+  inputs : ["weather"]
 })
-export class SessionDetailsPage {
-  public sessionData: SessionData;
-  public fnCallBack: Function;
-<span class="fstat-no" title="function not covered" >  constructor(public <span class="cstat-no" title="statement not covered" >n</span>av: NavController, n</span>avParams: NavParams) {
-<span class="cstat-no" title="statement not covered" >      this.sessionData = navParams.get("</span>sessionData");
+export class WeatherView {
+  @Input() public weather: any;
+<span class="fstat-no" title="function not covered" >  constructor() {</span>
   }
 }
 &nbsp;</pre></td></tr>

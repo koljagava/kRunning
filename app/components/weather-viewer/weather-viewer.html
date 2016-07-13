@@ -7,7 +7,7 @@
 <div *ngIf="weather != null">
 <ion-row>
   <ion-col>
-    <img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png">
+    <ion-img src="http://openweathermap.org/img/w/{{weather.weather[0].icon}}.png"></ion-img>
   </ion-col>
   <ion-col>
     {{weather.weather[0].description}}

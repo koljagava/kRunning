@@ -227,11 +227,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import {Injectable} from "@angular/core";
 import {Service} from "./Service";
-import {Events} from 'ionic-angular';
-import {Configuration} from '../Configuration';
+import {Events} from "ionic-angular";
+import {Configuration} from "../Configuration";
 import {DateUtils} from "../utils/Date";
 import {StringUtils} from "../utils/String";
-import {EventsManager} from '../utils/EventsManager';
+import {EventsManager} from "../utils/EventsManager";
 &nbsp;
 <span class="fstat-no" title="function not covered" >e</span>xport class TimeData {
     public <span class="cstat-no" title="statement not covered" >startTime: Date = new D</span>ate();
@@ -241,48 +241,48 @@ import {EventsManager} from '../utils/EventsManager';
 &nbsp;
 @Injectable()
 export class TimerService implements Service {
-    public static providers = [Events];    
-    public timeData : TimeData;
-    private events : Events;
+    public static providers = [Events];
+    public timeData: TimeData;
+    private events: Events;
     private <span class="cstat-no" title="statement not covered" >isPaused = f</span>alse;
     private infoMinElaps: Date;
-    private delay : number;
-            
-<span class="fstat-no" title="function not covered" >    public constructor(e</span>vents :Events) {
+    private delay: number;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    public constructor(e</span>vents: Events) {
 <span class="cstat-no" title="statement not covered" >        this.events = e</span>vents;
 <span class="cstat-no" title="statement not covered" >        this.timeData = new T</span>imeData();
-<span class="cstat-no" title="statement not covered" >        if (Configuration.startDelaySecs!=null){</span>
+<span class="cstat-no" title="statement not covered" >        if (Configuration.startDelaySecs != null) {</span>
 <span class="cstat-no" title="statement not covered" >            this.delay = Configuration.startDelaySecs * 1</span>000;
-        }else{
-<span class="cstat-no" title="statement not covered" >            this.delay=0</span>;
+        }else {
+<span class="cstat-no" title="statement not covered" >            this.delay = 0</span>;
         }
 <span class="cstat-no" title="statement not covered" >        this.r</span>esetTimer();
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    p</span>rivate resetTimer(){
+<span class="fstat-no" title="function not covered" >    p</span>rivate resetTimer() {
 <span class="cstat-no" title="statement not covered" >        this.timeData = new T</span>imeData();
 <span class="cstat-no" title="statement not covered" >        this.infoMinElaps = DateUtils.g</span>etZeroTime();
 <span class="cstat-no" title="statement not covered" >        this.s</span>etInfoMinElaps();
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    p</span>rivate checkInfoMinElaps(){
-<span class="cstat-no" title="statement not covered" >        if (this.timeData.elapsed.getTime()&gt; this.infoMinElaps.getTime()){</span>
+<span class="fstat-no" title="function not covered" >    p</span>rivate checkInfoMinElaps() {
+<span class="cstat-no" title="statement not covered" >        if (this.timeData.elapsed.getTime() &gt; this.infoMinElaps.getTime()) {</span>
 <span class="cstat-no" title="statement not covered" >            let mins = Math.ceil((this.timeData.elapsed.getTime() - DateUtils.getZeroTime().getTime()) / 60000) - 1</span>;
-<span class="cstat-no" title="statement not covered" >            EventsManager.publish("TimerService:infoMinElaps",m</span>ins);
+<span class="cstat-no" title="statement not covered" >            EventsManager.publish("TimerService:infoMinElaps", m</span>ins);
 <span class="cstat-no" title="statement not covered" >            this.s</span>etInfoMinElaps();
         }
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    p</span>rivate setInfoMinElaps(){
-<span class="cstat-no" title="statement not covered" >        this.infoMinElaps.setTime(this.infoMinElaps.getTime() + 6</span>0000); 
+<span class="fstat-no" title="function not covered" >    p</span>rivate setInfoMinElaps() {
+<span class="cstat-no" title="statement not covered" >        this.infoMinElaps.setTime(this.infoMinElaps.getTime() + 6</span>0000);
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    p</span>ublic toString():string {
-<span class="cstat-no" title="statement not covered" >        let t</span>ime : Date;
-<span class="cstat-no" title="statement not covered" >        if (this.timeData.stopTime!=null){</span>
+<span class="fstat-no" title="function not covered" >    p</span>ublic toString(): string {
+<span class="cstat-no" title="statement not covered" >        let t</span>ime: Date;
+<span class="cstat-no" title="statement not covered" >        if (this.timeData.stopTime != null) {</span>
 <span class="cstat-no" title="statement not covered" >            time = new D</span>ate();
 <span class="cstat-no" title="statement not covered" >            time.setTime(this.timeData.stopTime.getTime() - this.timeData.startTime.g</span>etTime());
-        }else{            
+        }else {
 <span class="cstat-no" title="statement not covered" >            time = this.timeData.e</span>lapsed;
         }
 <span class="cstat-no" title="statement not covered" >        return DateUtils.getTimeToSting(t</span>ime);
@@ -293,25 +293,25 @@ export class TimerService implements Service {
 <span class="cstat-no" title="statement not covered" >        EventsManager.publish("</span>TimerService:start");
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    p</span>ublic pause(){
+<span class="fstat-no" title="function not covered" >    p</span>ublic pause() {
 <span class="cstat-no" title="statement not covered" >        this.isPaused = t</span>rue;
     }
-    
-<span class="fstat-no" title="function not covered" >    p</span>ublic resume(){
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>ublic resume() {
 <span class="cstat-no" title="statement not covered" >        this.isPaused = f</span>alse;
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    p</span>ublic execute(){
-<span class="cstat-no" title="statement not covered" >            if (this.isPaused == true)</span>
-<span class="cstat-no" title="statement not covered" >                r</span>eturn;
-<span class="cstat-no" title="statement not covered" >            let currTime = new D</span>ate(); 
-<span class="cstat-no" title="statement not covered" >            this.timeData.elapsed.setTime(currTime.getTime() - this.timeData.startTime.g</span>etTime());
-<span class="cstat-no" title="statement not covered" >            this.timeData.elapsed.setTime(this.timeData.elapsed.getTime() + (this.timeData.elapsed.getTimezoneOffset() * 6</span>0000));
-<span class="cstat-no" title="statement not covered" >            this.c</span>heckInfoMinElaps();
+<span class="fstat-no" title="function not covered" >    p</span>ublic execute() {
+<span class="cstat-no" title="statement not covered" >        if (this.isPaused === true)</span>
+<span class="cstat-no" title="statement not covered" >            r</span>eturn;
+<span class="cstat-no" title="statement not covered" >        let currTime = new D</span>ate();
+<span class="cstat-no" title="statement not covered" >        this.timeData.elapsed.setTime(currTime.getTime() - this.timeData.startTime.g</span>etTime());
+<span class="cstat-no" title="statement not covered" >        this.timeData.elapsed.setTime(this.timeData.elapsed.getTime() + (this.timeData.elapsed.getTimezoneOffset() * 6</span>0000));
+<span class="cstat-no" title="statement not covered" >        this.c</span>heckInfoMinElaps();
     }
-    
-<span class="fstat-no" title="function not covered" >    p</span>ublic stop():void{
-<span class="cstat-no" title="statement not covered" >        this.timeData.stopTime = new Date(this.timeData.startTime.getTime()+this.timeData.elapsed.g</span>etTime());
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>ublic stop(): void {
+<span class="cstat-no" title="statement not covered" >        this.timeData.stopTime = new Date(this.timeData.startTime.getTime() + this.timeData.elapsed.g</span>etTime());
 <span class="cstat-no" title="statement not covered" >        EventsManager.publish("TimerService:stop", this.t</span>imeData);
     }
 }</pre></td></tr>
@@ -320,7 +320,7 @@ export class TimerService implements Service {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jul 11 2016 04:24:56 GMT+0200 (CEST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jul 13 2016 19:34:22 GMT+0200 (CEST)
 </div>
 </div>
 <script src="../../prettify.js"></script>

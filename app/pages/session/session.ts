@@ -21,7 +21,7 @@ export class Session {
     private viewCtrl: ViewController;
     public isStarted = "secondary";
 
-    public constructor(viewCtrl: ViewController, servicesHandler : ServicesHandler, events : Events) {
+    public constructor(viewCtrl: ViewController, servicesHandler: ServicesHandler, events: Events) {
         this.viewCtrl = viewCtrl;
         this.events = events;
         this.servicesHandler = servicesHandler;

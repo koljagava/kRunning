@@ -261,24 +261,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import {Injectable} from "@angular/core";
 import {Service} from "./Service";
-import {Events} from 'ionic-angular';
+import {Events} from "ionic-angular";
 import {StringUtils} from "../utils/String";
-import {Http, HTTP_PROVIDERS} from '@angular/http';
-import {Logging} from '../utils/Logging';
-import {EventsManager} from '../utils/EventsManager';
+import {Http, HTTP_PROVIDERS} from "@angular/http";
+import {Logging} from "../utils/Logging";
+import {EventsManager} from "../utils/EventsManager";
 &nbsp;
 @Injectable()
-export class WeatherService implements Service{
+export class WeatherService implements Service {
     public static providers = [Events, Http, HTTP_PROVIDERS];
-    private events : Events;
-    private http : Http;
+    private events: Events;
+    private http: Http;
     private static API_URL = "http://api.openweathermap.org/data";
     private static API_VER = "2.5";
     private static API_UNIT= "metric";
-    private static API_ID  = "d47877d6c8ab95bad2106065f5b0390c"
+    private static API_ID  = "d47877d6c8ab95bad2106065f5b0390c";
     private static API_LANG= "it";
     private static API_CMD = "[API_URL]/[API_VER]/weather?APPID=[API_ID]&amp;units=[API_UNIT]&amp;lat=[LATITUDE]&amp;lon=[LONGITUDE]&amp;lang=[API_LANG]";
-    private currentPosition : Position;
+    private currentPosition: Position;
     /*
     -- Current response
     {"coord":{"lon":139,"lat":35},
@@ -293,37 +293,37 @@ export class WeatherService implements Service{
     "name":"Shuzenji",
     "cod":200}
     */
-    public currWeather :any;  
-    private isPaused :boolean;
-    
+    public currWeather: any;
+    private isPaused: boolean;
+&nbsp;
 <span class="fstat-no" title="function not covered" >    p</span>ublic get lastUpdate(){
-<span class="cstat-no" title="statement not covered" >        if(this.currWeather==null || typeof this.currWeather.dt == "undefined")</span>
+<span class="cstat-no" title="statement not covered" >        if (this.currWeather == null || typeof this.currWeather.dt === "undefined")</span>
 <span class="cstat-no" title="statement not covered" >            return n</span>ull;
 <span class="cstat-no" title="statement not covered" >        return new Date(this.currWeather.d</span>t);
-    } 
-    
-<span class="fstat-no" title="function not covered" >    public constructor(events :Events, h</span>ttp: Http) {
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    public constructor(events: Events, h</span>ttp: Http) {
 <span class="cstat-no" title="statement not covered" >        this.currentPosition = n</span>ull;
 <span class="cstat-no" title="statement not covered" >        this.events = e</span>vents;
 <span class="cstat-no" title="statement not covered" >        this.http = h</span>ttp;
 <span class="cstat-no" title="statement not covered" >        this.currWeather = n</span>ull;
 <span class="cstat-no" title="statement not covered" >        this.isPaused = f</span>alse;
     }
-    
-<span class="fstat-no" title="function not covered" >    public setCurrentPosition(p</span>arams : Array&lt;any&gt;){
+&nbsp;
+<span class="fstat-no" title="function not covered" >    public setCurrentPosition(p</span>arams: Array&lt;any&gt;) {
 <span class="cstat-no" title="statement not covered" >        let pos = &lt;Position&gt;params[0</span>];
-<span class="cstat-no" title="statement not covered" >        if (this.currentPosition==null){ </span>
-<span class="cstat-no" title="statement not covered" >            this.currentPosition=p</span>os;
+<span class="cstat-no" title="statement not covered" >        if (this.currentPosition == null) {</span>
+<span class="cstat-no" title="statement not covered" >            this.currentPosition = p</span>os;
 <span class="cstat-no" title="statement not covered" >            this.e</span>xecute();
         }else
-<span class="cstat-no" title="statement not covered" >            this.currentPosition=p</span>os;
+<span class="cstat-no" title="statement not covered" >            this.currentPosition = p</span>os;
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    p</span>ublic start(){
+<span class="fstat-no" title="function not covered" >    p</span>ublic start() {
 <span class="cstat-no" title="statement not covered" >        EventsManager.subscribe("GeoLocationService:newPosition", this, this.s</span>etCurrentPosition);
     }
-    
-<span class="fstat-no" title="function not covered" >    private getUrl(c</span>oord : Coordinates):string{
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private getUrl(c</span>oord: Coordinates): string {
 <span class="cstat-no" title="statement not covered" >        let url = WeatherService.A</span>PI_CMD;
 <span class="cstat-no" title="statement not covered" >        url = url.replace("[API_URL]", WeatherService.A</span>PI_URL);
 <span class="cstat-no" title="statement not covered" >        url = url.replace("[API_VER]", WeatherService.A</span>PI_VER);
@@ -334,36 +334,36 @@ export class WeatherService implements Service{
 <span class="cstat-no" title="statement not covered" >        url = url.replace("[API_LANG]", WeatherService.A</span>PI_LANG);
 <span class="cstat-no" title="statement not covered" >        return u</span>rl;
     }
-    
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    p</span>ublic execute(){</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    p</span>ublic execute() {</span>
 <span class="cstat-no" title="statement not covered" >        if (this.isPaused === true || this.currentPosition == null)</span>
 <span class="cstat-no" title="statement not covered" >            r</span>eturn;
-<span class="cstat-no" title="statement not covered" >        try{</span>
+<span class="cstat-no" title="statement not covered" >        try {</span>
 <span class="cstat-no" title="statement not covered" >        this.http.get(this.getUrl(this.currentPosition.coords))</span>
-            .subscribe(<span class="fstat-no" title="function not covered" >(r</span>esponse)=&gt; {
-<span class="cstat-no" title="statement not covered" >                if (response.status==200){</span>
+            .subscribe(<span class="fstat-no" title="function not covered" >(r</span>esponse) =&gt; {
+<span class="cstat-no" title="statement not covered" >                if (response.status === 200) {</span>
 <span class="cstat-no" title="statement not covered" >                    this.currWeather = response.j</span>son();
-<span class="cstat-no" title="statement not covered" >                    EventsManager.publish("WeatherService:newWeather",this.c</span>urrWeather);
-                }else{
-<span class="cstat-no" title="statement not covered" >                    Logging.log(this, StringUtils.format('Error OpenWeather : {0}',response.t</span>ext()));
+<span class="cstat-no" title="statement not covered" >                    EventsManager.publish("WeatherService:newWeather", this.c</span>urrWeather);
+                }else {
+<span class="cstat-no" title="statement not covered" >                    Logging.log(this, StringUtils.format("Error OpenWeather : {0}", response.t</span>ext()));
                 }
             });
-        }catch(err){
+        }catch (err) {
 <span class="cstat-no" title="statement not covered" >            Logging.log(this, e</span>rr);
 <span class="cstat-no" title="statement not covered" >            this.currentPosition = n</span>ull;
         }
     }
-    
-<span class="fstat-no" title="function not covered" >    p</span>ublic stop(){              
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>ublic stop() {
 <span class="cstat-no" title="statement not covered" >        EventsManager.unsubscribe("GeoLocationService:newPosition", t</span>his);
     }
-    
-<span class="fstat-no" title="function not covered" >    p</span>ublic pause(){
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>ublic pause() {
 <span class="cstat-no" title="statement not covered" >        this.isPaused = t</span>rue;
     }
-    
-<span class="fstat-no" title="function not covered" >    p</span>ublic resume(){
-<span class="cstat-no" title="statement not covered" >        this.isPaused=f</span>alse;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>ublic resume() {
+<span class="cstat-no" title="statement not covered" >        this.isPaused = f</span>alse;
     }
 }</pre></td></tr>
 </table></pre>
@@ -371,7 +371,7 @@ export class WeatherService implements Service{
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jul 11 2016 04:24:56 GMT+0200 (CEST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jul 13 2016 19:34:22 GMT+0200 (CEST)
 </div>
 </div>
 <script src="../../prettify.js"></script>

@@ -260,10 +260,7 @@
 211
 212
 213
-214
-215
-216
-217</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+214</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -410,9 +407,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -479,27 +473,27 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import {Observable} from 'rxjs/Observable';
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import {Observable} from "rxjs/Observable";
 import {Injectable} from "@angular/core";
 import {Service} from "./Service";
-import {Events} from 'ionic-angular';
-import {Configuration} from '../Configuration';
-import {Converter} from '../utils/Converter';
-import {LocalStorage} from '../utils/Storage';
-import {EventsManager} from '../utils/EventsManager';
-import {TimeData} from './TimerService'
-import * as LeafLet from 'leaflet';
+import {Events} from "ionic-angular";
+import {Configuration} from "../Configuration";
+import {Converter} from "../utils/Converter";
+import {LocalStorage} from "../utils/Storage";
+import {EventsManager} from "../utils/EventsManager";
+import {TimeData} from "./TimerService";
+import * as LeafLet from "leaflet";
 &nbsp;
-export class KCoordinates{
+export class KCoordinates {
     public accuracy: number;
     public altitude: number;
     public altitudeAccuracy: number;
     public heading: number;
     public latitude: number;
     public longitude: number;
-    public speed: number;    
+    public speed: number;
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public constructor(c</span>oords : Coordinates){
+<span class="fstat-no" title="function not covered" >    public constructor(c</span>oords: Coordinates) {
 <span class="cstat-no" title="statement not covered" >        this.accuracy = coords.a</span>ccuracy;
 <span class="cstat-no" title="statement not covered" >        this.altitude = coords.a</span>ltitude;
 <span class="cstat-no" title="statement not covered" >        this.altitudeAccuracy = coords.a</span>ltitudeAccuracy;
@@ -509,7 +503,7 @@ export class KCoordinates{
 <span class="cstat-no" title="statement not covered" >        this.speed = (coords.speed * Configuration.globals.speed[Configuration.u</span>nit]);
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    p</span>ublic toLatLng(){
+<span class="fstat-no" title="function not covered" >    p</span>ublic toLatLng() {
 <span class="cstat-no" title="statement not covered" >        return new LeafLet.LatLng(this.latitude, this.l</span>ongitude);
     }
 &nbsp;
@@ -517,12 +511,12 @@ export class KCoordinates{
 &nbsp;
 export class KPosition {
     coords: KCoordinates;
-    timestamp: number;    
-    pace : Date;
-    beatRate : number;
+    timestamp: number;
+    pace: Date;
+    beatRate: number;
     distance: number;
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public constructor(p</span>os : Position){
+<span class="fstat-no" title="function not covered" >    public constructor(p</span>os: Position) {
 <span class="cstat-no" title="statement not covered" >        this.coords = new KCoordinates(pos.c</span>oords);
 <span class="cstat-no" title="statement not covered" >        this.timestamp = pos.t</span>imestamp;
 <span class="cstat-no" title="statement not covered" >        this.pace = Converter.getPaceFromSpeed(this.coords.s</span>peed);
@@ -531,49 +525,49 @@ export class KPosition {
     }
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >e</span>xport class SessionData{
-    public startTime : Date;
-    public stopTime : Date;
-    public duration : Date;
-    public <span class="cstat-no" title="statement not covered" >avPace : Date = n</span>ull; // Average Pace
-    public <span class="cstat-no" title="statement not covered" >avSpeed : number = 0</span>; // Average Speed;
+<span class="fstat-no" title="function not covered" >e</span>xport class SessionData {
+    public startTime: Date;
+    public stopTime: Date;
+    public duration: Date;
+    public <span class="cstat-no" title="statement not covered" >avPace: Date = n</span>ull; // Average Pace
+    public <span class="cstat-no" title="statement not covered" >avSpeed: number = 0</span>; // Average Speed;
     public <span class="cstat-no" title="statement not covered" >maxSpeed: number = 0</span>; // Max Speed
-    public <span class="cstat-no" title="statement not covered" >maxAltitude : number = 0</span>; //altitudine Minima
-    public <span class="cstat-no" title="statement not covered" >minAltitude : number = 9</span>9999999; // altitudine Massima
-    public <span class="cstat-no" title="statement not covered" >elevation : number = 0</span>; // elevazione
-    public <span class="cstat-no" title="statement not covered" >hillDistance : number = 0</span>; //distanza altitudine (??)
-    public <span class="cstat-no" title="statement not covered" >flatDistance : number = 0</span>; //Distanza (??)
-    //public flatDistanceL : number =0;
-    public <span class="cstat-no" title="statement not covered" >positions : Array&lt;KPosition&gt; = new A</span>rray&lt;KPosition&gt;();
-    public <span class="cstat-no" title="statement not covered" >lastWeather : any = n</span>ull;
+    public <span class="cstat-no" title="statement not covered" >maxAltitude: number = 0</span>; // altitudine Minima
+    public <span class="cstat-no" title="statement not covered" >minAltitude: number = 9</span>9999999; // altitudine Massima
+    public <span class="cstat-no" title="statement not covered" >elevation: number = 0</span>; // elevazione
+    public <span class="cstat-no" title="statement not covered" >hillDistance: number = 0</span>; // distanza altitudine (??)
+    public <span class="cstat-no" title="statement not covered" >flatDistance: number = 0</span>; // Distanza (??)
+    // public flatDistanceL : number =0;
+    public <span class="cstat-no" title="statement not covered" >positions: Array&lt;KPosition&gt; = new A</span>rray&lt;KPosition&gt;();
+    public <span class="cstat-no" title="statement not covered" >lastWeather: any = n</span>ull;
 &nbsp;
-<span class="fstat-no" title="function not covered" >    p</span>ublic get speed():number {
-<span class="cstat-no" title="statement not covered" >        return this.positions.length==0 ? 0: this.positions[this.positions.length-1].coords.s</span>peed;
+<span class="fstat-no" title="function not covered" >    p</span>ublic get speed(): number {
+<span class="cstat-no" title="statement not covered" >        return this.positions.length === 0 ? 0 : this.positions[this.positions.length - 1].coords.s</span>peed;
     }
 }
 &nbsp;
 @Injectable()
 export class SessionDataService implements Service {
-    public static providers = [Events];    
-    private events : Events;
+    public static providers = [Events];
+    private events: Events;
     private <span class="cstat-no" title="statement not covered" >isPaused = f</span>alse;
-    public previousPosition : Position;
-    public currentPosition : Position;
-    public sessionData : SessionData;
-    public isSignalAccurate :boolean;
-    private infoKmElaps : number;
-    public actualGpsAccuracy : number;
+    public previousPosition: Position;
+    public currentPosition: Position;
+    public sessionData: SessionData;
+    public isSignalAccurate: boolean;
+    private infoKmElaps: number;
+    public actualGpsAccuracy: number;
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public constructor(e</span>vents: Events){
+<span class="fstat-no" title="function not covered" >    public constructor(e</span>vents: Events) {
 <span class="cstat-no" title="statement not covered" >        this.events = e</span>vents;
 <span class="cstat-no" title="statement not covered" >        this.sessionData = new S</span>essionData();
     }
-    
-<span class="fstat-no" title="function not covered" >    p</span>ublic start(){
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>ublic start() {
 <span class="cstat-no" title="statement not covered" >        this.previousPosition = n</span>ull;
 <span class="cstat-no" title="statement not covered" >        this.currentPosition = n</span>ull;
 <span class="cstat-no" title="statement not covered" >        this.isSignalAccurate = f</span>alse;
-<span class="cstat-no" title="statement not covered" >        this.actualGpsAccuracy = n</span>ull;        
+<span class="cstat-no" title="statement not covered" >        this.actualGpsAccuracy = n</span>ull;
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        EventsManager.subscribe("GeoLocationService:newPosition", this, this.s</span>etCurrentPosition);
 <span class="cstat-no" title="statement not covered" >        EventsManager.subscribe("WeatherService:newWeather", this, this.s</span>etCurrentWeather);
@@ -581,61 +575,58 @@ export class SessionDataService implements Service {
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        this.infoKmElaps = 1</span>;
      }
-    
-<span class="fstat-no" title="function not covered" >    private setSessionTime(p</span>arams : Array&lt;any&gt;){
+&nbsp;
+<span class="fstat-no" title="function not covered" >    private setSessionTime(p</span>arams: Array&lt;any&gt;) {
 <span class="cstat-no" title="statement not covered" >        let timeData = &lt;TimeData&gt;params[0</span>];
 <span class="cstat-no" title="statement not covered" >        this.sessionData.startTime = timeData.s</span>tartTime;
 <span class="cstat-no" title="statement not covered" >        this.sessionData.stopTime = timeData.s</span>topTime;
 <span class="cstat-no" title="statement not covered" >        this.sessionData.duration = timeData.e</span>lapsed;
-<span class="cstat-no" title="statement not covered" >        this.s</span>aveSession();        
+<span class="cstat-no" title="statement not covered" >        this.s</span>aveSession();
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    p</span>rivate saveSession(){
-<span class="cstat-no" title="statement not covered" >            if (this.sessionData.positions.length==0)</span>
+<span class="fstat-no" title="function not covered" >    p</span>rivate saveSession() {
+<span class="cstat-no" title="statement not covered" >            if (this.sessionData.positions.length === 0)</span>
 <span class="cstat-no" title="statement not covered" >            r</span>eturn;
-<span class="cstat-no" title="statement not covered" >            let sessions = LocalStorage.getObject&lt;Array&lt;SessionData&gt;&gt;('sessions') || new A</span>rray&lt;SessionData&gt;();
+<span class="cstat-no" title="statement not covered" >            let sessions = LocalStorage.getObject&lt;Array&lt;SessionData&gt;&gt;("sessions") || new A</span>rray&lt;SessionData&gt;();
 <span class="cstat-no" title="statement not covered" >            sessions.push(this.s</span>essionData);
-<span class="cstat-no" title="statement not covered" >            LocalStorage.setObject('sessions', s</span>essions);
+<span class="cstat-no" title="statement not covered" >            LocalStorage.setObject("sessions", s</span>essions);
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    private setCurrentPosition(p</span>arams : Array&lt;any&gt;) {
+<span class="fstat-no" title="function not covered" >    private setCurrentPosition(p</span>arams: Array&lt;any&gt;) {
 <span class="cstat-no" title="statement not covered" >        let pos = &lt;Position&gt;params[0</span>];
 <span class="cstat-no" title="statement not covered" >        this.checkSignalAccuracy(pos.coords.a</span>ccuracy);
 <span class="cstat-no" title="statement not covered" >        if (this.isSignalAccurate)</span>
 <span class="cstat-no" title="statement not covered" >            this.currentPosition = p</span>os;
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    private checkSignalAccuracy(a</span>ccuracy:number){
+<span class="fstat-no" title="function not covered" >    private checkSignalAccuracy(a</span>ccuracy: number) {
 <span class="cstat-no" title="statement not covered" >        this.actualGpsAccuracy = a</span>ccuracy;
-<span class="cstat-no" title="statement not covered" >        this.isSignalAccurate  = accuracy &lt;= Configuration.m</span>inRecordingAccuracy; 
+<span class="cstat-no" title="statement not covered" >        this.isSignalAccurate  = accuracy &lt;= Configuration.m</span>inRecordingAccuracy;
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    private setCurrentWeather(p</span>arams : Array&lt;any&gt;){
+<span class="fstat-no" title="function not covered" >    private setCurrentWeather(p</span>arams: Array&lt;any&gt;) {
 <span class="cstat-no" title="statement not covered" >        this.sessionData.lastWeather = params[0</span>];
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    p</span>ublic execute() {
-<span class="cstat-no" title="statement not covered" >        if (this.isPaused === true || this.currentPosition == null || </span>
+<span class="cstat-no" title="statement not covered" >        if (this.isPaused === true || this.currentPosition == null ||</span>
             this.previousPosition === this.currentPosition)
 <span class="cstat-no" title="statement not covered" >            r</span>eturn;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        if (this.previousPosition == null){</span>
+<span class="cstat-no" title="statement not covered" >        if (this.previousPosition == null) {</span>
 <span class="cstat-no" title="statement not covered" >            this.previousPosition = this.c</span>urrentPosition;
         }
 &nbsp;
-        //do calc
+        // do calc
 <span class="cstat-no" title="statement not covered" >        let kPos = new KPosition(this.c</span>urrentPosition);
-        
-        //weather
-        //kPos.weather = this.sessionData.lastWeather;
-        
+&nbsp;
 <span class="cstat-no" title="statement not covered" >        if (this.sessionData.maxSpeed &lt; kPos.coords.speed)</span>
 <span class="cstat-no" title="statement not covered" >            this.sessionData.maxSpeed = kPos.coords.s</span>peed;
 &nbsp;
-        //Distance
+        // Distance
 <span class="cstat-no" title="statement not covered" >        this.calcDistance(k</span>Pos);
         // add Position if needed
-<span class="cstat-no" title="statement not covered" >        if(kPos.distance!=0 || this.sessionData.positions.length == 0){</span>
+<span class="cstat-no" title="statement not covered" >        if (kPos.distance !== 0 || this.sessionData.positions.length === 0) {</span>
 <span class="cstat-no" title="statement not covered" >            this.sessionData.positions.push(k</span>Pos);
 <span class="cstat-no" title="statement not covered" >            EventsManager.publish("SessionDataService:newPosition", k</span>Pos);
         }
@@ -643,57 +634,57 @@ export class SessionDataService implements Service {
 <span class="cstat-no" title="statement not covered" >        this.c</span>heckInfoKmElaps();
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    p</span>rivate checkInfoKmElaps(){
-<span class="cstat-no" title="statement not covered" >        if (this.sessionData.flatDistance&gt; this.infoKmElaps){</span>
-<span class="cstat-no" title="statement not covered" >            EventsManager.publish("SessionDataService:infoKmElaps",this.sessionData.flatDistance.toFixed(0</span>));
+<span class="fstat-no" title="function not covered" >    p</span>rivate checkInfoKmElaps() {
+<span class="cstat-no" title="statement not covered" >        if (this.sessionData.flatDistance &gt; this.infoKmElaps) {</span>
+<span class="cstat-no" title="statement not covered" >            EventsManager.publish("SessionDataService:infoKmElaps", this.sessionData.flatDistance.toFixed(0</span>));
 <span class="cstat-no" title="statement not covered" >            this.i</span>nfoKmElaps++;
         }
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    private calcDistance(p</span>os:KPosition){
+<span class="fstat-no" title="function not covered" >    private calcDistance(p</span>os: KPosition) {
 <span class="cstat-no" title="statement not covered" >        const  R = 6</span>378.137; // kms
 <span class="cstat-no" title="statement not covered" >        let φ1 = Converter.toRadians(this.previousPosition.coords.l</span>atitude);
 <span class="cstat-no" title="statement not covered" >        let φ2 = Converter.toRadians(pos.coords.l</span>atitude);
 <span class="cstat-no" title="statement not covered" >        let Δφ = Converter.toRadians(pos.coords.latitude - this.previousPosition.coords.l</span>atitude);
 <span class="cstat-no" title="statement not covered" >        let Δλ = Converter.toRadians(pos.coords.longitude - this.previousPosition.coords.l</span>ongitude);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        let Δalt = (pos.coords.altitude!=null &amp;&amp; this.previousPosition.coords.altitude!= null)</span>
+<span class="cstat-no" title="statement not covered" >        let Δalt = (pos.coords.altitude != null &amp;&amp; this.previousPosition.coords.altitude != null)</span>
                    ? (pos.coords.altitude - this.previousPosition.coords.altitude) / 1000 : 0;
-<span class="cstat-no" title="statement not covered" >        let a = (Math.pow(Math.sin(Δφ/2),2)) + (Math.cos(φ1) * Math.cos(φ2) * Math.pow(Math.sin(Δλ/2),2</span>));
-<span class="cstat-no" title="statement not covered" >        let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a</span>));
+<span class="cstat-no" title="statement not covered" >        let a = (Math.pow(Math.sin(Δφ / 2), 2)) + (Math.cos(φ1) * Math.cos(φ2) * Math.pow(Math.sin(Δλ / 2), 2</span>));
+<span class="cstat-no" title="statement not covered" >        let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a</span>));
 <span class="cstat-no" title="statement not covered" >        let dist = R * c</span>;
-<span class="cstat-no" title="statement not covered" >        let eleDist = Math.sqrt(Math.pow(Δalt,2) + Math.pow(dist,2</span>)); 
+<span class="cstat-no" title="statement not covered" >        let eleDist = Math.sqrt(Math.pow(Δalt, 2) + Math.pow(dist, 2</span>));
 <span class="cstat-no" title="statement not covered" >        let elapsedTime = pos.timestamp - this.previousPosition.t</span>imestamp;
 <span class="cstat-no" title="statement not covered" >        let dSpeed = (dist) / (elapsedTime / 1000 / 60 / 6</span>0);
 <span class="cstat-no" title="statement not covered" >        if ((dSpeed &lt; 38) &amp;&amp; (dSpeed &gt; 2)) {</span>
 <span class="cstat-no" title="statement not covered" >            pos.distance = d</span>ist;
 <span class="cstat-no" title="statement not covered" >            this.sessionData.hillDistance += e</span>leDist;
 <span class="cstat-no" title="statement not covered" >            this.sessionData.flatDistance += d</span>ist;
-            //this.sessionData.flatDistanceL += pos.coords.toLatLng().distanceTo([this.previousPosition.coords.latitude, this.previousPosition.coords.longitude])/1000;
+            // this.sessionData.flatDistanceL += pos.coords.toLatLng().distanceTo([this.previousPosition.coords.latitude, this.previousPosition.coords.longitude])/1000;
         }
 &nbsp;
-        //Altitude
-<span class="cstat-no" title="statement not covered" >        if(pos.coords.altitude!=null){</span>
-<span class="cstat-no" title="statement not covered" >            if (pos.coords.altitude&gt;this.sessionData.maxAltitude)</span>
+        // Altitude
+<span class="cstat-no" title="statement not covered" >        if (pos.coords.altitude != null) {</span>
+<span class="cstat-no" title="statement not covered" >            if (pos.coords.altitude &gt; this.sessionData.maxAltitude)</span>
 <span class="cstat-no" title="statement not covered" >                this.sessionData.maxAltitude = pos.coords.a</span>ltitude;
-<span class="cstat-no" title="statement not covered" >            if (pos.coords.altitude&lt;this.sessionData.minAltitude)</span>
+<span class="cstat-no" title="statement not covered" >            if (pos.coords.altitude &lt; this.sessionData.minAltitude)</span>
 <span class="cstat-no" title="statement not covered" >                this.sessionData.minAltitude = pos.coords.a</span>ltitude;
 <span class="cstat-no" title="statement not covered" >            this.sessionData.elevation = this.sessionData.maxAltitude - this.sessionData.m</span>inAltitude;
         }
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    p</span>ublic stop(){
+<span class="fstat-no" title="function not covered" >    p</span>ublic stop() {
 <span class="cstat-no" title="statement not covered" >        EventsManager.unsubscribe("GeoLocationService:newPosition", t</span>his);
-<span class="cstat-no" title="statement not covered" >        EventsManager.unsubscribe("WeatherService:newWeather",t</span>his);
-<span class="cstat-no" title="statement not covered" >        EventsManager.unsubscribe("TimerService:stop",t</span>his);
+<span class="cstat-no" title="statement not covered" >        EventsManager.unsubscribe("WeatherService:newWeather", t</span>his);
+<span class="cstat-no" title="statement not covered" >        EventsManager.unsubscribe("TimerService:stop", t</span>his);
     }
-    
-<span class="fstat-no" title="function not covered" >    p</span>ublic pause(){
-<span class="cstat-no" title="statement not covered" >        this.isPaused = t</span>rue;        
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>ublic pause() {
+<span class="cstat-no" title="statement not covered" >        this.isPaused = t</span>rue;
     }
-    
-<span class="fstat-no" title="function not covered" >    p</span>ublic resume(){
-<span class="cstat-no" title="statement not covered" >        this.isPaused=f</span>alse;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>ublic resume() {
+<span class="cstat-no" title="statement not covered" >        this.isPaused = f</span>alse;
     }
 }</pre></td></tr>
 </table></pre>
@@ -701,7 +692,7 @@ export class SessionDataService implements Service {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jul 11 2016 04:24:56 GMT+0200 (CEST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jul 13 2016 19:34:22 GMT+0200 (CEST)
 </div>
 </div>
 <script src="../../prettify.js"></script>

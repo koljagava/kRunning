@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/components/map-viewer/map-viewer.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">app/components/map-viewer/</a> map-viewer.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">39.19% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>29/74</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70.73% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>29/41</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">31.03% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>18/58</span>
+      </div>
+      <div class='fl pad1y'>
+        <span class="strong">3 statements, 12 branches</span>
+        <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import {Input, AfterViewInit, OnDestroy, Component} from "@angular/core";
+import {StringUtils} from "../../utils/String";
+import {EventsManager} from "../../utils/EventsManager";
+import {KPosition} from "../../services/SessionDataService";
+import {Events} from "ionic-angular";
+import * as LeafLet from "leaflet";
+&nbsp;
+@Component({
+  selector: "map-viewer",
+  templateUrl: "build/components/map-viewer/map-viewer.html",
+  providers: [Events],
+  inputs : ["positions, height"]
+})
+&nbsp;
+export class MapViewer implements AfterViewInit, OnDestroy {
+  @Input() public <span class="cstat-no" title="statement not covered" >height: number = 3</span>00;
+  public static id: number = 0;
+  public instanceId: string;
+  private map: LeafLet.Map;
+  private polyline: LeafLet.Polyline;
+  private events: Events;
+  private startMarker: LeafLet.Marker;
+  private stopMarker: LeafLet.Marker;
+  @Input() public <span class="cstat-no" title="statement not covered" >positions: Array&lt;KPosition&gt; = n</span>ull;
+&nbsp;
+<span class="fstat-no" title="function not covered" >  constructor(e</span>vents: Events) {
+<span class="cstat-no" title="statement not covered" >    this.events = e</span>vents;
+<span class="cstat-no" title="statement not covered" >    this.instanceId = StringUtils.format("kMapViewer_{0}", MapViewer.i</span>d++);
+<span class="cstat-no" title="statement not covered" >    this.instanceId = "</span>kMapViewer_0";
+<span class="cstat-no" title="statement not covered" >    this.polyline = n</span>ull;
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  p</span>ublic ngAfterViewInit() {</span>
+<span class="cstat-no" title="statement not covered" >    let baseMap = n</span>ew LeafLet.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+              attribution: "&amp;copy; &lt;a href='http://www.openstreetmap.org/copyright'&gt;OpenStreetMap&lt;/a&gt;, Tiles courtesy of &lt;a href='http://hot.openstreetmap.org/' target='_blank'&gt;Humanitarian OpenStreetMap Team&lt;/a&gt;"
+            });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.map = n</span>ew LeafLet.Map(this.instanceId, {
+          zoomControl: false,
+          layers: [baseMap]
+        });
+    // use this.events when will be more stable
+    // his.events.subscribe("SessionDataService:newPosition", this.setPolyline.bind(this));
+<span class="cstat-no" title="statement not covered" >    if (this.positions == null)</span>
+<span class="cstat-no" title="statement not covered" >      EventsManager.subscribe("SessionDataService:newPosition", this, this.<span class="cstat-no" title="statement not covered" >s</span>etPolyline);</span>
+    else
+      setTimeout(<span class="fstat-no" title="function not covered" >(</span>) =&gt; {
+<span class="cstat-no" title="statement not covered" >          this.setPolyline(this.p</span>ositions);
+      }, 1500);
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  public setPolyline(p</span>ositions: Array&lt;KPosition&gt;) {</span>
+<span class="cstat-no" title="statement not covered" >      if (positions == null)</span>
+<span class="cstat-no" title="statement not covered" >        r</span>eturn;
+<span class="cstat-no" title="statement not covered" >      let latLngs = this.getLatLngArray(p</span>ositions);
+<span class="cstat-no" title="statement not covered" >      if (this.polyline == null) {</span>
+<span class="cstat-no" title="statement not covered" >        let iStart = new LeafLet.DivIcon({iconSize: LeafLet.point(15, 15), html: "</span>s"});
+<span class="cstat-no" title="statement not covered" >        let iStop = new LeafLet.DivIcon({iconSize: LeafLet.point(15, 15), html: "</span>e"});
+        // let icon = new L.Icon.Default({
+        //     iconUrl: "build/images/marker-icon.png",
+        //     shadowUrl :"build/images/marker-shadow.png",
+        //     iconSize : [10,20]
+        // });
+<span class="cstat-no" title="statement not covered" >        this.startMarker = new LeafLet.Marker(latLngs[0], {icon: iStart, clickable: false, draggable: false, title: "start1", alt: "</span>start2"});
+<span class="cstat-no" title="statement not covered" >        this.stopMarker = new LeafLet.Marker(latLngs[latLngs.length - 1], {icon: iStop, clickable: false, draggable: f</span>alse} );
+<span class="cstat-no" title="statement not covered" >        this.map.setView(latLngs[0], 1</span>6);
+<span class="cstat-no" title="statement not covered" >        this.polyline = LeafLet.polyline(l</span>atLngs);
+<span class="cstat-no" title="statement not covered" >        this.polyline.addTo(this.m</span>ap);
+<span class="cstat-no" title="statement not covered" >        this.startMarker.addTo(this.m</span>ap);
+<span class="cstat-no" title="statement not covered" >        this.stopMarker.addTo(this.m</span>ap);
+<span class="cstat-no" title="statement not covered" >        this.c</span>heckMapBounds();
+      }else {
+<span class="cstat-no" title="statement not covered" >        latLngs.forEach(<span class="fstat-no" title="function not covered" >(l</span>atLng: LeafLet.LatLng) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            this.polyline.addLatLng(l</span>atLng);
+        });
+<span class="cstat-no" title="statement not covered" >        this.stopMarker.setLatLng(latLngs[latLngs.length - 1</span>]);
+<span class="cstat-no" title="statement not covered" >        this.c</span>heckMapBounds();
+      }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  p</span>rivate checkMapBounds() {
+<span class="cstat-no" title="statement not covered" >    let plB = this.polyline.g</span>etBounds();
+<span class="cstat-no" title="statement not covered" >    let mpB = this.map.g</span>etBounds();
+<span class="cstat-no" title="statement not covered" >    if (!mpB.contains(plB)) {</span>
+<span class="cstat-no" title="statement not covered" >      this.map.fitBounds(plB.pad(0</span>.2));
+    }
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  private getLatLngArray(p</span>ositions: Array&lt;KPosition&gt;) {
+<span class="cstat-no" title="statement not covered" >    let latLngs = new A</span>rray&lt;LeafLet.LatLng&gt;();
+<span class="cstat-no" title="statement not covered" >    if (positions == null)</span>
+<span class="cstat-no" title="statement not covered" >      return l</span>atLngs;
+<span class="cstat-no" title="statement not covered" >    positions.forEach(<span class="fstat-no" title="function not covered" >(p</span>os: KPosition) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >       latLngs.push(new LeafLet.LatLng(pos.coords.latitude, pos.coords.l</span>ongitude));
+    });
+<span class="cstat-no" title="statement not covered" >    return l</span>atLngs;
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  p</span>ublic ngOnDestroy() {
+<span class="cstat-no" title="statement not covered" >    MapViewer.i</span>d--;
+    // this.events.unsubscribe("SessionDataService:newPosition", false);
+<span class="cstat-no" title="statement not covered" >    if (this.positions == null)</span>
+<span class="cstat-no" title="statement not covered" >      EventsManager.unsubscribe("SessionDataService:newPosition", t</span>his);
+  }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jul 13 2016 19:34:22 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

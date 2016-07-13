@@ -179,42 +179,42 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">class FunctionStore{
-    callback : Function;
-    caller : Object;
-<span class="fstat-no" title="function not covered" >    constructor(callback : Function, c</span>aller : Object){
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">class FunctionStore {
+    callback: Function;
+    caller: Object;
+<span class="fstat-no" title="function not covered" >    constructor(callback: Function, c</span>aller: Object) {
 <span class="cstat-no" title="statement not covered" >        this.callback = c</span>allback;
 <span class="cstat-no" title="statement not covered" >        this.caller = c</span>aller;
-    } 
+    }
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >export class EventsManager{</span>
+<span class="fstat-no" title="function not covered" >export class EventsManager {</span>
     public static _channels = new Array&lt;Array&lt;FunctionStore&gt;&gt;();
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public static subscribe(topic: string, caller: Object, c</span>allback : Function) : boolean {
-<span class="cstat-no" title="statement not covered" >        let channel = EventsManager._channels[t</span>opic]; 
-<span class="cstat-no" title="statement not covered" >        if (!channel){</span>
+<span class="fstat-no" title="function not covered" >    public static subscribe(topic: string, caller: Object, c</span>allback: Function): boolean {
+<span class="cstat-no" title="statement not covered" >        let channel = EventsManager._channels[t</span>opic];
+<span class="cstat-no" title="statement not covered" >        if (!channel) {</span>
 <span class="cstat-no" title="statement not covered" >            channel = new A</span>rray&lt;FunctionStore&gt;();
 <span class="cstat-no" title="statement not covered" >            EventsManager._channels[topic] = c</span>hannel;
         }
-<span class="cstat-no" title="statement not covered" >        if (EventsManager.getFunctionStoreByCaller(channel, caller) == null){</span>
+<span class="cstat-no" title="statement not covered" >        if (EventsManager.getFunctionStoreByCaller(channel, caller) == null) {</span>
 <span class="cstat-no" title="statement not covered" >            channel.push(new FunctionStore(callback, c</span>aller));
 <span class="cstat-no" title="statement not covered" >            return t</span>rue;
         }
 <span class="cstat-no" title="statement not covered" >        return f</span>alse;
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    private static getFunctionStoreByCaller(channel :Array&lt;FunctionStore&gt;, c</span>aller : Object) : FunctionStore{
-<span class="cstat-no" title="statement not covered" >        let fs = c</span>hannel.find(<span class="fstat-no" title="function not covered" >(f</span>s : FunctionStore) =&gt; { <span class="cstat-no" title="statement not covered" >return fs.caller == c</span>aller });
+<span class="fstat-no" title="function not covered" >    private static getFunctionStoreByCaller(channel: Array&lt;FunctionStore&gt;, c</span>aller: Object): FunctionStore {
+<span class="cstat-no" title="statement not covered" >        let fs = c</span>hannel.find(<span class="fstat-no" title="function not covered" >(f</span>s: FunctionStore) =&gt; { <span class="cstat-no" title="statement not covered" >return fs.caller === c</span>aller; });
 <span class="cstat-no" title="statement not covered" >        return f</span>s;
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public static unsubscribe(topic: string, c</span>aller: Object) :boolean{
+<span class="fstat-no" title="function not covered" >    public static unsubscribe(topic: string, c</span>aller: Object): boolean {
 <span class="cstat-no" title="statement not covered" >        let channel = EventsManager._channels[t</span>opic];
 <span class="cstat-no" title="statement not covered" >        if (!channel)</span>
 <span class="cstat-no" title="statement not covered" >            return f</span>alse;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >         if (caller == null){</span>
+<span class="cstat-no" title="statement not covered" >         if (caller == null) {</span>
 <span class="cstat-no" title="statement not covered" >             delete EventsManager._channels[t</span>opic];
 <span class="cstat-no" title="statement not covered" >             return t</span>rue;
          }
@@ -226,21 +226,21 @@
 <span class="cstat-no" title="statement not covered" >            return f</span>alse;
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        channel.splice(channel.indexOf(fs),1</span>);
+<span class="cstat-no" title="statement not covered" >        channel.splice(channel.indexOf(fs), 1</span>);
 &nbsp;
         // If the channel is empty now, remove it from the channel map
 <span class="cstat-no" title="statement not covered" >        if (!channel.length) {</span>
 <span class="cstat-no" title="statement not covered" >            delete EventsManager._channels[t</span>opic];
         }
-<span class="cstat-no" title="statement not covered" >        return t</span>rue;         
+<span class="cstat-no" title="statement not covered" >        return t</span>rue;
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    public static publish(t</span>opic:string, <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >... params : Array&lt;any&gt;)</span></span>: boolean{
+<span class="fstat-no" title="function not covered" >    public static publish(t</span>opic: string, <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >... params: Array&lt;any&gt;)</span></span>: boolean {
 <span class="cstat-no" title="statement not covered" >        let channel = EventsManager._channels[t</span>opic];
 <span class="cstat-no" title="statement not covered" >        if (!channel)</span>
 <span class="cstat-no" title="statement not covered" >            return f</span>alse;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        channel.forEach(<span class="fstat-no" title="function not covered" >(f</span>s : FunctionStore) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        channel.forEach(<span class="fstat-no" title="function not covered" >(f</span>s: FunctionStore) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >            fs.callback.bind(fs.caller)(p</span>arams);
         });
 <span class="cstat-no" title="statement not covered" >        return t</span>rue;
@@ -251,7 +251,7 @@
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jul 11 2016 04:24:56 GMT+0200 (CEST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jul 13 2016 19:34:22 GMT+0200 (CEST)
 </div>
 </div>
 <script src="../../prettify.js"></script>

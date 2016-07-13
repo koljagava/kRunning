@@ -100,8 +100,7 @@
 55
 56
 57
-58
-59</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+58</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -132,7 +131,6 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -159,60 +157,59 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import { Type } from '@angular/core';
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import { Type } from "@angular/core";
 import {Service, ServiceInfo} from "./Service";
-import {Events} from 'ionic-angular';
-import {Configuration} from '../Configuration';
+import {Events} from "ionic-angular";
+import {Configuration} from "../Configuration";
 &nbsp;
-//Services
-import {TimerService} from './TimerService';
-import {GeoLocationService} from './GeoLocationService';
-import {WeatherService}from './WeatherService';
-import {SpeechService}from './SpeechService';
-import {SessionDataService}from './SessionDataService';
+// Services
+import {TimerService} from "./TimerService";
+import {GeoLocationService} from "./GeoLocationService";
+import {WeatherService}from "./WeatherService";
+import {SpeechService}from "./SpeechService";
+import {SessionDataService}from "./SessionDataService";
 &nbsp;
-<span class="fstat-no" title="function not covered" >export class ServicesBuilder{</span>
-    public x : TimerService;
-    private static _servicesInfo : Array&lt;ServiceInfo&gt; = null;
+<span class="fstat-no" title="function not covered" >export class ServicesBuilder {</span>
+    public x: TimerService;
+    private static _servicesInfo: Array&lt;ServiceInfo&gt; = null;
 &nbsp;
-    public static get servicesInfo():Array&lt;ServiceInfo&gt;{
-        if (this._servicesInfo!=null)        
+    public static get servicesInfo(): Array&lt;ServiceInfo&gt;{
+        if (this._servicesInfo != null)
             return ServicesBuilder._servicesInfo;
         this._servicesInfo = new Array&lt;ServiceInfo&gt;();
 &nbsp;
-        //WeatherService
-        this._servicesInfo.push(new ServiceInfo(WeatherService,600));        
-        //GeoLocationService
-        this._servicesInfo.push(new ServiceInfo(GeoLocationService,null));
-        //TimerService
-        this._servicesInfo.push(new ServiceInfo(TimerService,1));
-        //SpeechService
-        this._servicesInfo.push(new ServiceInfo(SpeechService,null));
-        //SessionDataService
+        // WeatherService
+        this._servicesInfo.push(new ServiceInfo(WeatherService, 600));
+        // GeoLocationService
+        this._servicesInfo.push(new ServiceInfo(GeoLocationService, null));
+        // TimerService
+        this._servicesInfo.push(new ServiceInfo(TimerService, 1));
+        // SpeechService
+        this._servicesInfo.push(new ServiceInfo(SpeechService, null));
+        // SessionDataService
         this._servicesInfo.push(new ServiceInfo(SessionDataService, Configuration.minRecordingGap));
-&nbsp;
 &nbsp;
         return this._servicesInfo;
     }
-    
-    public static getServiceTypes(): Array&lt;Type&gt;{
+&nbsp;
+    public static getServiceTypes(): Array&lt;Type&gt; {
         let serviceTypes = new Array&lt;Type&gt;();
         this.servicesInfo.forEach(si =&gt; {
-            serviceTypes.push(si.serviceType)
+            serviceTypes.push(si.serviceType);
         });
         return serviceTypes;
     }
-    
-    public static getProviders(<span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>defaultProviders:Array&lt;Type&gt;=[])</span>: Array&lt;Type|any[]&gt;{
-        let providers:Array&lt;Type|any[]&gt;=defaultProviders;        
+&nbsp;
+    public static getProviders(<span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>defaultProviders: Array&lt;Type&gt;= [])</span>: Array&lt;Type|any[]&gt; {
+        let providers: Array&lt;Type|any[]&gt; = defaultProviders;
         this.servicesInfo.forEach(si =&gt; {
-            si.serviceProviders.forEach(sp=&gt;{
-                if(!providers.find(el=&gt; el.toString() == sp.toString()))
+            si.serviceProviders.forEach(sp =&gt; {
+                if (!providers.find(el =&gt; el.toString() === sp.toString()))
                     providers.push(sp);
             });
         });
         this.getServiceTypes().forEach(si =&gt; {
-            <span class="missing-if-branch" title="else path not taken" >E</span>if(!providers.find(el=&gt; el.toString() == si.toString()))
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (!providers.find(el =&gt; el.toString() === si.toString()))
                 providers.push(si);
         });
         return providers;
@@ -223,7 +220,7 @@ import {SessionDataService}from './SessionDataService';
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jul 11 2016 04:24:56 GMT+0200 (CEST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jul 13 2016 19:34:22 GMT+0200 (CEST)
 </div>
 </div>
 <script src="../../prettify.js"></script>

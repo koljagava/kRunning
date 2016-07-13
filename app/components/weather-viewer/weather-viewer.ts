@@ -14,6 +14,5 @@ import {Component, Input} from "@angular/core";
 export class WeatherView {
   @Input() public weather: any;
   constructor() {
-    let a = this.weather;
   }
 }

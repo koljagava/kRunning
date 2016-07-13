@@ -143,16 +143,12 @@
 94
 95
 96
-97
-98
-99</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+97</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
@@ -243,100 +239,98 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import { Type } from '@angular/core';
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">import { Type } from "@angular/core";
 import {ReflectiveInjector, Injectable} from "@angular/core";
 import {Service, ServiceType, ServiceInfo} from "./Service";
-import {Events} from 'ionic-angular';
-import {ServicesBuilder} from './ServicesBuilder';
+import {Events} from "ionic-angular";
+import {ServicesBuilder} from "./ServicesBuilder";
 import {Logging} from "../utils/Logging";
 &nbsp;
-declare var cordova: any;
-&nbsp;
 @Injectable()
-export class ServicesHandler{
+export class ServicesHandler {
     public startTime: Date;
     public stopTime: Date;
     public servicesInfo: Array&lt;ServiceInfo&gt;;
-    private services 
-    
-    private events : Events;
-    private isPaused : boolean;
-    public isStarted : boolean;
-    
-<span class="fstat-no" title="function not covered" >    public constructor(e</span>vents:Events){
+    private services;
+&nbsp;
+    private events: Events;
+    private isPaused: boolean;
+    public isStarted: boolean;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    public constructor(e</span>vents: Events) {
 <span class="cstat-no" title="statement not covered" >        this.events = e</span>vents;
-<span class="cstat-no" title="statement not covered" >        this.isPaused=f</span>alse;
-<span class="cstat-no" title="statement not covered" >        this.isStarted=f</span>alse;
+<span class="cstat-no" title="statement not covered" >        this.isPaused = f</span>alse;
+<span class="cstat-no" title="statement not covered" >        this.isStarted = f</span>alse;
 <span class="cstat-no" title="statement not covered" >        this.servicesInfo = ServicesBuilder.s</span>ervicesInfo;
 <span class="cstat-no" title="statement not covered" >        let injector = ReflectiveInjector.resolveAndCreate(ServicesBuilder.g</span>etProviders());
 <span class="cstat-no" title="statement not covered" >        this.servicesInfo.forEach(<span class="fstat-no" title="function not covered" >s</span>i =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >            si.service = injector.get(si.s</span>erviceType);
         });
     }
-    
-<span class="fstat-no" title="function not covered" >    p</span>ublic pause():void{
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>ublic pause(): void {
 <span class="cstat-no" title="statement not covered" >        this.isPaused = t</span>rue;
     }
-    
-<span class="fstat-no" title="function not covered" >    p</span>ublic resume():void{
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>ublic resume(): void {
 <span class="cstat-no" title="statement not covered" >        this.isPaused = f</span>alse;
     }
-    
-<span class="fstat-no" title="function not covered" >    public getService&lt;T extends Service&gt;(s</span>erviceType: ServiceType):any {
-<span class="cstat-no" title="statement not covered" >        return &lt;T&gt;this.servicesInfo.find(<span class="fstat-no" title="function not covered" >s</span>i =&gt; <span class="cstat-no" title="statement not covered" >s</span>i.serviceType==serviceType).s</span>ervice;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    public getService&lt;T extends Service&gt;(s</span>erviceType: ServiceType): any {
+<span class="cstat-no" title="statement not covered" >        return &lt;T&gt;this.servicesInfo.find(<span class="fstat-no" title="function not covered" >s</span>i =&gt; <span class="cstat-no" title="statement not covered" >s</span>i.serviceType === serviceType).s</span>ervice;
     }
-    
-<span class="fstat-no" title="function not covered" >    p</span>rivate enableBackgroundMode(){
-<span class="cstat-no" title="statement not covered" >        if(cordova == null || cordova.plugins.backgroundMode == null){</span>
-<span class="cstat-no" title="statement not covered" >            Logging.log(this, '</span>Error enabling backgroundMode plugin');
+&nbsp;
+<span class="fstat-no" title="function not covered" >    p</span>rivate enableBackgroundMode() {
+<span class="cstat-no" title="statement not covered" >        if (cordova == null || cordova.plugins.backgroundMode == null) {</span>
+<span class="cstat-no" title="statement not covered" >            Logging.log(this, "</span>Error enabling backgroundMode plugin");
 <span class="cstat-no" title="statement not covered" >            r</span>eturn;
-        }        
+        }
 <span class="cstat-no" title="statement not covered" >        cordova.plugins.backgroundMode.setDefaults({</span>
-            title: 'kkRun',
-            ticker: 'text1',
-            text: 'text2'
+            title: "kkRun",
+            ticker: "text1",
+            text: "text2"
         });
 <span class="cstat-no" title="statement not covered" >        cordova.plugins.backgroundMode.e</span>nable();
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    p</span>rivate disableBackgroundMode(){
-<span class="cstat-no" title="statement not covered" >        if(cordova == null || cordova.plugins.backgroundMode == null){</span>
-<span class="cstat-no" title="statement not covered" >            Logging.log(this, '</span>Error disabling backgroundMode plugin');
+<span class="fstat-no" title="function not covered" >    p</span>rivate disableBackgroundMode() {
+<span class="cstat-no" title="statement not covered" >        if (cordova == null || cordova.plugins.backgroundMode == null) {</span>
+<span class="cstat-no" title="statement not covered" >            Logging.log(this, "</span>Error disabling backgroundMode plugin");
 <span class="cstat-no" title="statement not covered" >            r</span>eturn;
-        }        
+        }
 <span class="cstat-no" title="statement not covered" >        cordova.plugins.backgroundMode.d</span>isable();
     }
-    
+&nbsp;
 <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    p</span>ublic start(): void {</span>
 <span class="cstat-no" title="statement not covered" >        this.isStarted = t</span>rue;
 <span class="cstat-no" title="statement not covered" >        this.e</span>nableBackgroundMode();
 <span class="cstat-no" title="statement not covered" >        let handler = t</span>his;
-<span class="cstat-no" title="statement not covered" >        this.startTime= new D</span>ate();
+<span class="cstat-no" title="statement not covered" >        this.startTime = new D</span>ate();
 <span class="cstat-no" title="statement not covered" >        this.servicesInfo.forEach(<span class="fstat-no" title="function not covered" >s</span>i =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            if(si.iId!=null)</span>
+<span class="cstat-no" title="statement not covered" >            if (si.iId != null)</span>
 <span class="cstat-no" title="statement not covered" >                clearInterval(si.i</span>Id);
 <span class="cstat-no" title="statement not covered" >            si.service.s</span>tart();
-<span class="cstat-no" title="statement not covered" >            if (si.interval != null){</span>
+<span class="cstat-no" title="statement not covered" >            if (si.interval != null) {</span>
 <span class="cstat-no" title="statement not covered" >                si.nextExec = new Date(this.startTime.v</span>alueOf());
-<span class="cstat-no" title="statement not covered" >                si.iId = setInterval(<span class="fstat-no" title="function not covered" >(</span>)=&gt;{</span>
-<span class="cstat-no" title="statement not covered" >                        if(handler.isPaused==true)</span>
+<span class="cstat-no" title="statement not covered" >                si.iId = setInterval(<span class="fstat-no" title="function not covered" >(</span>) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >                        if (handler.isPaused === true)</span>
 <span class="cstat-no" title="statement not covered" >                            r</span>eturn;
-<span class="cstat-no" title="statement not covered" >                        si.nextExec = new Date(this.startTime.valueOf() + si.i</span>nterval);                     
+<span class="cstat-no" title="statement not covered" >                        si.nextExec = new Date(this.startTime.valueOf() + si.i</span>nterval);
 <span class="cstat-no" title="statement not covered" >                        si.service.e</span>xecute();
                     }
                     , si.interval);
-            }else{
+            }else {
 <span class="cstat-no" title="statement not covered" >                si.nextExec = n</span>ull;
 <span class="cstat-no" title="statement not covered" >                si.iId = n</span>ull;
             }
         });
     }
-    
+&nbsp;
 <span class="fstat-no" title="function not covered" >    p</span>ublic stop(): void {
-<span class="cstat-no" title="statement not covered" >        this.isStarted=f</span>alse;
-<span class="cstat-no" title="statement not covered" >        this.servicesInfo.forEach(<span class="fstat-no" title="function not covered" >(s</span>erviceInfo)=&gt;{</span>
+<span class="cstat-no" title="statement not covered" >        this.isStarted = f</span>alse;
+<span class="cstat-no" title="statement not covered" >        this.servicesInfo.forEach(<span class="fstat-no" title="function not covered" >(s</span>erviceInfo) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >                serviceInfo.service.s</span>top();
-<span class="cstat-no" title="statement not covered" >                if (serviceInfo.iId != null) </span>
+<span class="cstat-no" title="statement not covered" >                if (serviceInfo.iId != null)</span>
 <span class="cstat-no" title="statement not covered" >                    clearInterval(serviceInfo.i</span>Id);
         });
 <span class="cstat-no" title="statement not covered" >        this.d</span>isableBackgroundMode();
@@ -347,7 +341,7 @@ export class ServicesHandler{
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jul 11 2016 04:24:56 GMT+0200 (CEST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jul 13 2016 19:34:22 GMT+0200 (CEST)
 </div>
 </div>
 <script src="../../prettify.js"></script>

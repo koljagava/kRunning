@@ -122,7 +122,7 @@ gulp.task('lint', () => {
 // build unit tests, run unit tests, remap and report coverage
 gulp.task('unit-test', (done) => {
   runSequence(
-    [/*'lint',*/ 'html',
+    ['lint', 'html',
     'karma'],
     (done)
   );
