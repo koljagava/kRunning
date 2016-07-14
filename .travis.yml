@@ -26,6 +26,11 @@ branches:
 # Build Lifecycle:
 #
 
+before_install:
+  - nvm use 4.1.2
+  - npm install -g cordova ionic@beta
+  - ionic state clear
+
 install: npm install
 
 before_script:
@@ -37,7 +42,7 @@ script:
   - npm test                             # unit tests
 
 after_failure:
-  - cat /home/travis/build/lathonez/clicker/ionic_serve.log
+  - cat /home/travis/build/koljagava/kRunning/ionic_serve.log
 
 after_success:
   # Send coverage info off to cloud ppl
