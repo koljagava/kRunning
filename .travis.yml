@@ -62,6 +62,6 @@ before_deploy:
   - ls ./platforms/android/build/outputs/apk/android*.apk
 
 deploy:
-  provider: script
-  script: .travis/deploy.sh
-skip_cleanup: true
+# provider: script
+#  script: .travis/deploy.sh
+#skip_cleanup: true
