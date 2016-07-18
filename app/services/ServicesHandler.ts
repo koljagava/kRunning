@@ -45,7 +45,7 @@ export class ServicesHandler {
             return;
         }
         cordova.plugins.backgroundMode.setDefaults({
-            title: "kkRun",
+            title: "kRunning",
             ticker: "text1",
             text: "text2"
         });

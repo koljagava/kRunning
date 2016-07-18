@@ -6,3 +6,5 @@ coverage/
 .DS_Store
 .vscode/
 npm-debug.log
+resources/
+resources/android/icon/*
