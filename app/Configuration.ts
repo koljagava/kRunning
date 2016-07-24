@@ -38,7 +38,6 @@ export class ConfigurationType {
     public programStartDelayMin = 0;
     public lang = Globalization.getLocaleName();
     public mode = "md";
-    public unit = "kms";
     public minRecordingAccuracy = 22;
     public minRecordingGap = 5;
     public minRecordingSpeed = 3;
@@ -48,6 +47,10 @@ export class ConfigurationType {
     public speechEnabled = true;
     public startDelaySecs = 10;
     public globals = {
+        units : {
+            miles : "miles",
+            kms : "kms",
+        },
         heartRate: {
             service: "180d",
             measurement: "2a37"
@@ -75,12 +78,9 @@ export class ConfigurationType {
         speedlabel: {
             miles: " mph",
             kms: " kph"
-        },
-        distancelabel: {
-            miles: " miles",
-            kms: " km"
         }
     };
+    public unit = this.globals.units.kms;
     public stdPrograms: Array<RunProgram> = this.setStdPrograms();
 
     public setStdPrograms(): Array<RunProgram> {

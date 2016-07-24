@@ -107,6 +107,12 @@ gulp.task('karma-debug', (done) => {
     singleRun: false,
     browsers: ['Chrome'],
     reporters: ['mocha'],
+    browserify: {
+          debug: true,
+          plugin: [
+            ['tsify'],
+          ]  
+    }  
   };
   new karma.Server(karmaOpts, function() { done(); }).start();
 });

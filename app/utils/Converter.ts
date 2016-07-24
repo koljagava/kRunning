@@ -25,9 +25,19 @@ export class Converter {
     public static getPaceFromSpeed(speed: number): Date {
         if (speed == null || speed === 0)
             return DateUtils.getZeroTime();
-        let pace = new Date(0);
-        pace.setTime(DateUtils.getZeroTime().getTime() + ((Configuration.globals.pace[Configuration.unit] / speed) * 1000));
+
+        if (speed < 0)
+            throw new Error("speed can not be negative");
+
+        let conf = Configuration.globals.pace[Configuration.unit];
+        let pace = new Date(DateUtils.getZeroTime().getTime() + ((60 / speed) * 60000));
         return pace;
+    }
+
+    public static convertSpeedFromMeterPerSeconds(speed: number) {
+        if (speed == null || speed === 0)
+            return 0;
+        return speed * Configuration.globals.speed[Configuration.unit];
     }
 
     public static toRadians(num: number): number {

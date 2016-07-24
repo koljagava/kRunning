@@ -44,6 +44,7 @@ export class KPosition {
     public constructor(pos: Position) {
         this.coords = new KCoordinates(pos.coords);
         this.timestamp = pos.timestamp;
+        this.coords.speed = Converter.convertSpeedFromMeterPerSeconds(this.coords.speed);
         this.pace = Converter.getPaceFromSpeed(this.coords.speed);
         this.beatRate = null;
         this.distance = 0;
@@ -65,10 +66,6 @@ export class SessionData {
     // public flatDistanceL : number =0;
     public positions: Array<KPosition> = new Array<KPosition>();
     public lastWeather: any = null;
-
-    public get speed(): number {
-        return this.positions.length === 0 ? 0 : this.positions[this.positions.length - 1].coords.speed;
-    }
 }
 
 @Injectable()
