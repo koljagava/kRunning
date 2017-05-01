@@ -30,6 +30,7 @@ before_install:
   #- nvm use 4.2.6
   - npm install -g cordova ionic
   - ionic state restore
+  - rm -rf node_modules
 
 install: npm install
 
