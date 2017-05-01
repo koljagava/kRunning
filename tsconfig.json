@@ -1,20 +1,24 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "lib": [
+      "dom",
+      "es2015"
+    ],
+    "module": "es2015",
+    "moduleResolution": "node",
     "sourceMap": true,
-    "mapRoot" : "/home/kolja/workspace/kRunning/app/"
+    "target": "es5"
   },
-  "filesGlob": [
-    "**/*.ts",
-    "!node_modules/**/*"
+  "include": [
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "typings/main",
-    "typings/main.d.ts"
+    "src/**/*.spec.ts"
   ],
   "compileOnSave": false,
   "atom": {

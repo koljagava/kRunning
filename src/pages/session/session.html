@@ -1,0 +1,39 @@
+<ion-content padding class="session">
+  <h1 style="text-align:center" class="session">
+     {{servicesHandler.timerService.toString()}}
+  </h1>
+    <button ion-button *ngIf="servicesHandler.isStarted==false" color="primary" block (click)="start()">Start</button>
+    <button ion-button *ngIf="servicesHandler.isStarted==true" color="danger" block (click)="stop()">Stop</button>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-row class="session">
+          <ion-col>
+              <ion-label>Distance</ion-label>
+              <ion-label>Speed</ion-label>
+              <ion-label>Pace</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label secondary>{{servicesHandler.sessionDataService.sessionData.flatDistance | number:'1.2-2'}} km</ion-label>
+            <ion-label secondary>{{servicesHandler.sessionDataService.actualSpeed | number:'1.2-2'}} km/h</ion-label>
+            <ion-label secondary>{{servicesHandler.sessionDataService.actualPace | date:'HH:mm:ss'}} per Km</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col>
+        <weather-viewer [weather]="servicesHandler.sessionDataService.sessionData.lastWeather"></weather-viewer>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label>GPS Accuracy</ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-label secondary *ngIf="servicesHandler.sessionDataService.isSignalAccurate==true">{{servicesHandler.sessionDataService.actualGpsAccuracy | number:'1.2-2'}} m</ion-label>
+        <ion-label danger *ngIf="servicesHandler.sessionDataService.isSignalAccurate==false">{{servicesHandler.sessionDataService.actualGpsAccuracy | number:'1.2-2'}} m</ion-label>
+        <ion-label danger *ngIf="servicesHandler.sessionDataService.isSignalAccurate==null">&infin;</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <map-viewer></map-viewer>
+</ion-content>

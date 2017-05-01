@@ -1,0 +1,58 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="settings">
+<ion-card>
+  <ion-card-header>
+    User Info
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label floating>Height (cm)</ion-label>
+      <ion-input type="number" [(ngModel)]="config.heightCm"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Weight (kg) {{getBmiInfo()}}</ion-label>
+      <ion-input type="number" [(ngModel)]="config.weightKg"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Program to Follow</ion-label>
+      <ion-select [(ngModel)]="programName" multiple="false" placeholder="none..">
+        <ion-option *ngFor="let program of config.stdPrograms" selected="{{programName == program.name}}" value="{{program.name}}">{{program.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Program Start Delay (mins)</ion-label>
+      <ion-input type="number" [(ngModel)]="config.programStartDelayMin"></ion-input>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>
+    Rest
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label floating>minRecordingAccuracy</ion-label>
+      <ion-input type="number" [(ngModel)]="config.minRecordingAccuracy"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Speech Interval (min)</ion-label>
+      <ion-input type="number" [(ngModel)]="config.infoTimeElaps"></ion-input>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+</ion-content>
