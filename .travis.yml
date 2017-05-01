@@ -28,8 +28,8 @@ branches:
 
 before_install:
   #- nvm use 4.2.6
-  - npm install -g cordova ionic@beta
-  - ionic state clear
+  - npm install -g cordova ionic
+  - ionic state restore
 
 install: npm install
 
@@ -39,7 +39,7 @@ before_script:
 
 script:
   - npm run build                        # ionic build
-  - npm test                             # unit tests
+  - npm run test                         # unit tests
 
 after_failure:
   - cat /home/travis/build/koljagava/kRunning/ionic_serve.log
