@@ -29,7 +29,7 @@ branches:
 before_install:
   #- nvm use 4.2.6
   - npm install -g cordova ionic@beta
-  - ionic state clear
+  #- ionic state clear
 
 install: npm install
 
