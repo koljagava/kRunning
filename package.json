@@ -37,13 +37,14 @@
     "zone.js": "^0.8.5"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "1.3.6",
+    "@ionic/app-scripts": "^2.1.3",
     "@ionic/cli-build-ionic-angular": "latest",
     "@ionic/cli-plugin-cordova": "latest",
     "@types/jasmine": "latest",
     "@types/node": "latest",
     "angular2-template-loader": "latest",
     "html-loader": "latest",
+    "ionic": "3.7.0",
     "jasmine": "latest",
     "jasmine-spec-reporter": "latest",
     "karma": "latest",
@@ -56,7 +57,7 @@
     "protractor": "latest",
     "ts-loader": "latest",
     "ts-node": "latest",
-    "typescript": "~2.2.1"
+    "typescript": "latest"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",

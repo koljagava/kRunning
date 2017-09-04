@@ -55,7 +55,7 @@ before_deploy:
   - echo "y" | ./android-sdk-linux/tools/android update sdk --no-ui --filter android-23,build-tools-23.0.1
   - export ANDROID_HOME=${PWD}/android-sdk-linux
   # end install android
-  - ionic state restore
+  - ionic cordova prepare
   - ionic platform add android
   - ionic build android
   # `ionic build android` wraps `cordova build android`, which gives a legit exit code if it fails. Ionic does not; test apk exists.
