@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Session details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding color="dark" *ngIf="sessionData!== undefined">
+  <p>
+    Session StartTime : {{ sessionData.timerData.startTime | date:"dd/MM/yyyy HH:mm" }}
+  </p>
+  <p>
+    Session Time : {{sessionData.timerData.elapsed | date:"HH:mm:ss":"UTC"}}
+  </p>
+  <ion-row>
+   <ion-col>
+     <p>
+       Speed : {{sessionData.avSpeed | number:'1.2-2'}} km/h
+     </p>
+     <p>
+       Distance : {{sessionData.flatDistance | number:'1.2-2'}} km
+     </p>
+     <p>
+      Pace : {{sessionData.avPace | date:"m.ss"}} min/km
+    </p>
+  </ion-col>
+  <ion-col>
+   <weather-viewer [weather]="sessionData.lastWeather"></weather-viewer>
+  </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col>
+        <map-viewer [positions]="sessionData.positions"></map-viewer>
+      </ion-col>
+  </ion-row>
+</ion-content>

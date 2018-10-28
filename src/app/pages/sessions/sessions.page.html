@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Sessions</ion-title>
+    </ion-toolbar>
+  </ion-header>  
+<ion-content padding color="dark">
+  <ion-list class="animate-fade-slide-in-right" color="dark">
+    <ion-item-sliding color="dark" *ngFor="let session of sessions" (click)="viewSession(session)">
+      <ion-item color="dark">
+        <ion-row>
+          <ion-col size="4">   
+            <ion-row>
+              <ion-col style="text-align: center; font-size: 90%">
+                {{ session.timerData.startTime | date:"dd/MM/yyyy HH:mm" }}
+              </ion-col>
+              <ion-col style="text-align: center;">
+                <ion-badge item-left secondary>{{ session.flatDistance | number:'1.0-0'}} Km&nbsp;</ion-badge>        
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col size="8">
+            <ion-row>
+              <ion-col style="font-size: 80%">
+                {{session.flatDistance | number:'1.2-2'}} Km - {{session.timerData.elapsed | date:"HH:mm":"UTC"}} - {{session.avPace | date:"m.ss"}} min/km<br>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col style="font-size: 80%">
+                {{session.avSpeed  | number:'1.2-2'}} Km/h - {{ session.maxAltitude  | number:'1.2-2'}} m up / {{ session.minAltitude  | number:'1.2-2'}} m down
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options color="dark">
+        <ion-item button expand="full" color="danger" (click)="deleteSession(session)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </ion-item>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-fab slot="fixed" right vertical="bottom">
+    <ion-fab-button color="primary" (click)="newSession()"><ion-icon name="add"></ion-icon></ion-fab-button>
+  </ion-fab>
+</ion-content>

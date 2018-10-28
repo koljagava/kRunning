@@ -1,0 +1,7 @@
+{
+  "name": "kRunning",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
