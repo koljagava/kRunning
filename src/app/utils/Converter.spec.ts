@@ -16,21 +16,21 @@ class FakeObject {
 describe('Converter.getPaceFromSpeed', () => {
 
   it('Returns zero Time if speed is null', () => {
-    expect(Converter.getPaceFromSpeed(null).toString()).toBe(DateUtils.getZeroTime().toString());
+    expect(Converter.getPaceFromSpeed(null).toString()).toBe(new Date(0).toString());
   });
 
   it('Return zero Time if speed is undefined', () => {
     // tslint:disable-next-line:prefer-const
     let undef;
-    expect(Converter.getPaceFromSpeed(undef).toString()).toBe(DateUtils.getZeroTime().toString());
+    expect(Converter.getPaceFromSpeed(undef).toString()).toBe(new Date(0).toString());
   });
 
   it('Returns zero Time if speed is zero', () => {
-    expect(Converter.getPaceFromSpeed(0).toString()).toBe(DateUtils.getZeroTime().toString());
+    expect(Converter.getPaceFromSpeed(0).toString()).toBe(new Date(0).toString());
   });
 
   it('Returns correct Pace', () => {
-    const expectedPace = DateUtils.getZeroTime();
+    const expectedPace = new Date(0);
     expectedPace.setHours(0, 2, 24);
     expect(Converter.getPaceFromSpeed(25).toString()).toBe(expectedPace.toString());
   });

@@ -1,7 +1,6 @@
 import {Service} from './Service';
 import {Configuration} from '../Configuration';
 import {Converter} from '../utils/Converter';
-import {DateUtils} from '../utils/Date';
 import {LocalStorage} from '../utils/Storage';
 import {EventsManager} from '../utils/EventsManager';
 import {TimerData} from './TimerService';
